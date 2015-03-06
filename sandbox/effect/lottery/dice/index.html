@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .wrap{
+            margin:0 auto;
+            width:600px;
+        }
+        #num{
+            font-size: 4em;
+            margin: 0 auto;
+            padding: 1em 0;
+            width: 200px;
+            text-align: center;
+        }
+        #start{
+            border:1px solid #000;
+            padding: 0.5em;
+            font-size: 2em;
+            text-align: center;
+            color: green;
+            margin:0 auto;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>士銘與芝盈 <span style="color:chocolate">婚禮抽獎程式</span></h1>
+    <div id="num">&nbsp;</div>
+
+    <div id="start">開始抽獎</div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $('#start').click(function(){
+        play();
+    });
+
+    function play(){
+        var r = rand(1, 12);
+        if (r < 10) {
+            r = '0' + r;
+        }
+        $('#num').html(r);
+
+
+        setTimeout(function(){
+            play();
+        }, 100);
+    }
+    function rand(min,max) {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+</script>
+</body>
+</html>

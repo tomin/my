@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .clearfix:before, .clearfix:after {
+            content: "\0020";
+            display: block;
+            height: 0;
+            overflow: hidden;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        #wrap{
+            margin: 0 auto;
+            width: 320px;
+        }
+        #map{
+            border:1px solid green;
+            padding:2px;
+        }
+        .block{
+            width: 32%;
+            border:1px solid red;
+            height: 50px;
+            float:left;
+            position: relative;
+        }
+        .step{
+            //opacity: .2;
+        }
+        .step.active{
+            //opacity: 1;
+        }
+        .img{
+            width: 100px;
+            height: 50px;
+        }
+        .mask{
+            position: absolute;
+            background: #000;
+            width: 100px;
+            height: 50px;
+            opacity: .7;
+            top:0;
+            left:0;
+        }
+        .mask.active{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="map" class="clearfix">
+        <div class="block step step0 active"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask active"></div></div>
+        <div class="block step step1"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block step step2"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block step step7"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block center">center logo</div>
+        <div class="block step step3"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block step step6"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block step step5"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+        <div class="block step step4"><img class="img" src="http://www.gravatar.com/avatar/0c4c5cbf702c80f2fa1f31dc2c2f15c3.jpg?d=http%3A%2F%2Fcsscreator.com%2Fsites%2Fall%2Fthemes%2Fcsscr_six%2Fimages%2Fcockatoo-sm.jpg&s=120&r=G"><div class="mask"></div></div>
+    </div>
+
+
+    <div id="play">play()</div>
+    <div id="result">0</div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+    var stepsize = $('.step').size(),
+            speed = 200;
+
+    //console.log(stepsize)
+    function play(){
+        var period = usefloor(20,27),
+                start = ~~$('.step.active').prop('class').match(/step([0-9])/)[1],
+                dece = period - 8,
+                decesize = 1;
+
+        //console.log(start)
+        //console.log(period)
+        for (var i=0; i<period; i++){
+            (function(i) {
+                //console.log(i);
+                var time = speed * i;
+
+                // speed up
+                if (i > dece) {
+                    time = time + 200 * decesize;
+                    decesize++;
+                }
+
+                setTimeout(function(){
+                    var index =  (i + start) % stepsize;
+                    //console.log(index);
+                    $('.step').removeClass('active');
+                    $('.step' + index).addClass('active');
+                    $('.mask').removeClass('active');
+                    $('.step' + index + " .mask").addClass('active');
+                    //console.log(i);
+                    if (i == period - 1) {
+                        $('#result').html(index);
+                    }
+                }, time);
+            })(i);
+        }
+    }
+    function usefloor(min,max) {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+    $('#play').click(play);
+    play();
+
+</script>
+
+</body>
+</html>

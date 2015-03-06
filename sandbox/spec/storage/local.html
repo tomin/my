@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    function inc_local_x() {
+        localStorage.x++; // localStorage is an attribute of window
+        document.getElementById("local_x").firstChild.nodeValue = localStorage.x;
+    }
+    function clear_all() {
+        localStorage.clear();
+        document.getElementById("local_x").firstChild.nodeValue = localStorage.x;
+    }
+    function init() {
+        if (!localStorage.x)
+            localStorage.x = 1;
+        document.getElementById("local_x").firstChild.nodeValue = localStorage.x;
+    }
+</script>
+
+<body onload="init()">
+<h1>LocalStorage test</h1>
+<p>
+    localStorage.x = <span id="local_x">0</span> <button onclick="inc_local_x();">inc</button>
+</p>
+
+<hr/>
+<div>
+    <button onclick="clear_all();">clear</button>
+</div>
+
+</body>

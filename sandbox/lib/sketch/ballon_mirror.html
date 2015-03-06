@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+#canvas {
+
+}
+#background {
+    display: none;
+}
+#ballon {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    cursor: move;
+}
+#wrapper{
+    float:left;
+    width: 500px;
+    overflow: hidden;
+}
+
+</style>
+<body>
+<h1>Drag the ballon.</h1>
+<div id="wrapper">
+    <canvas id="canvas" width="500" height="325"></canvas>
+</div>
+<canvas id="my" width="500" height="325"></canvas>
+
+<img src="images/sky.jpg" id="background" />
+<img src="images/ballon.png" id="ballon" />
+
+<button id="draw">Draw</button>
+
+<img src="" id="output"/>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="js/sketch.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var d_canvas = document.getElementById('canvas');
+        var context = d_canvas.getContext('2d');
+        var background = document.getElementById('background');
+        var ballon = document.getElementById('ballon')
+        context.drawImage(background, 0, 0);
+
+        $('#ballon').draggable();
+
+        $('#draw').click(function() {
+            var $ballon = $('#ballon'),
+                $canvas = $('#canvas');
+            var ballon_x = $ballon.offset().left - $canvas.offset().left,
+                ballon_y = $ballon.offset().top - $canvas.offset().top;
+
+            //context.drawImage(background, 0, 0);
+            context.drawImage(ballon, ballon_x, ballon_y);
+            context.drawImage($('#my')[0], 0, 0);
+
+
+            $ballon.hide();
+            //$(this).attr('disabled', 'disabled');
+
+            var data = d_canvas.toDataURL();
+            $('#output').prop('src', data);
+        });
+        $('#my').sketch({defaultColor: "#00f"});
+    });
+</script>
+</body>
+</html>

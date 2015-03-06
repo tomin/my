@@ -1,0 +1,26 @@
+{
+  "main": "index.html",
+  "name": "acg",
+  "description": "ACG",
+  "version": "0.1.0",
+  "keywords": [ "acg", "node-webkit" ],
+  "window": {
+    "title": "萌咩誌",
+    "icon": "link.png",
+    "toolbar": false,
+    "frame": true,
+    "width": 1200,
+    "height": 660,
+    "position": "center",
+    "resizable": true,    
+    "min_width": 400,
+    "min_height": 200
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "deck":"latest"
+  }
+}
+

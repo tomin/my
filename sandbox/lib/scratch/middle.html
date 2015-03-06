@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+        #elem{
+            width: 300px;
+            height: 380px;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="elem"></div>
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="js/wScratchPad.js"></script>
+<script>
+    var count = 0;
+    $('#elem').wScratchPad({
+        size        : 65,          // The size of the brush/scratch.
+        bg          : 'images/corgi.jpg',  // Background (image path or hex color).
+        fg          : 'images/corgi_black.jpg',  // Foreground (image path or hex color).
+        realtime    : true,       // Calculates percentage in realitime.
+        scratchDown : function () {
+            //console.log('down');
+        },
+        scratchMove : function () {
+            //console.log('move');
+        },
+        scratchUp   : function (e, percent) {
+            //console.log('up');
+            //console.log(percent)
+            if (percent > 70) {
+                this.clear();
+            }
+        },
+        myFunc      : function(e, event) {
+            count++;
+            if (count > 100) {
+                this.clear();
+            }
+        },
+        cursor      : 'crosshair' // Set cursor.
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+<div class="span5" style="margin-top:20px;" ng-controller="SelectCtrl">
+    <h4>label for value in array</h4>
+    <div class="alert alert-info">
+        <select ng-model="role1" ng-options="member for member in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="role1!=null">選擇的是:{{ role1 }}</div>
+    </div>
+
+    <h4>select as label for value in array</h4>
+    <div class="alert alert-success">
+        <select ng-model="role2" ng-options="i as member for (i, member) in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="role2!=null">選擇的是:{{ role2 }}</div>
+    </div>
+
+    <h4>label group by group for value in array</h4>
+    <div class="alert alert-error">
+        <select ng-model="role3" ng-options="member group by i for (i, member) in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="role3!=null">選擇的是:{{ role3 }}</div>
+    </div>
+
+    <h4>select as label group by group for value in array</h4>
+    <div class="alert">
+        <select ng-model="role4" ng-options="i as member group by i for (i, member) in onepiece">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="role4!=null">選擇的是:{{ role4 }}</div>
+    </div>
+</div>
+</body>
+</html>

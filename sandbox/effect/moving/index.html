@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <style>
+        html, body {
+            margin: 0;
+        }
+
+        #wrap {
+            margin: 0 auto;
+            width: 320px;
+            overflow: hidden;
+        }
+
+        #bg {
+            background-image: url('img/bg.jpg');
+            background-size: 320px 400px;
+            min-height: 400px;
+            display: none;
+        }
+
+        #wave {
+            width: 1400px;
+            height: 215px;
+            margin-top: 92px;
+        }
+
+        #intro {
+            font-size: 40px;
+            font-weight: bolder;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="wrap">
+    <div id="intro">Please Shake Your Phone!</div>
+    <div id="bg">
+        <img id="wave" src="img/Wave.png"/>
+    </div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    var lefttilt = false,
+            righttilt = false;
+
+    function bgrun() {
+        $('#wave').animate({ marginLeft: -840}, {
+            duration: 3000,
+            easing: 'linear',
+            start: function () {
+            },
+            complete: function () {
+                $('#wave').css({ marginLeft: 0});
+                bgrun();
+            }
+        });
+    }
+
+    //setInterval(bgrun, 4000);
+
+    function init() {
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function (eventData) {
+                // gamma is the left-to-right tilt in degrees, where right is positive
+                var tiltLR = eventData.gamma;
+
+                // beta is the front-to-back tilt in degrees, where front is positive
+                var tiltFB = eventData.beta;
+
+                // alpha is the compass direction the device is facing in degrees
+                var dir = eventData.alpha
+
+                // call our orientation event handler
+                deviceOrientationHandler(tiltLR, tiltFB, dir);
+            }, false);
+        }
+    }
+
+    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+        var lr = Math.round(tiltLR);
+
+        if (lr > 10) {
+            lefttilt = true;
+        } else if (lr < -10) {
+            righttilt = true;
+        }
+
+        if (lefttilt && righttilt) {
+            $('#intro').hide();
+            $('#bg').show();
+            bgrun();
+        }
+
+    }
+    init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+html, body{
+    margin: 0;
+}
+#wrap{
+    margin: 0 auto;
+    width: 320px;
+    overflow: hidden;
+}
+#bg{
+    background-image: url('img/bg.jpg');
+    background-size: 320px 400px;
+    min-height: 400px;
+}
+#wave{
+    width: 1400px;
+    height: 215px;
+    margin-top: 92px;
+}
+</style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="bg">
+
+        <img id="wave" src="img/Wave.png"/>
+    </div>
+
+    <div id="output"></div>
+
+</div>
+
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    var i=0;
+function bgrun(){
+    $('#wave').animate({ marginLeft: -840}, {
+        duration: 3000,
+        easing: 'linear',
+        start: function() {
+
+        },
+        step: function() {
+            if (i % 12 == 0) {
+                var rand = Math.floor(Math.random()*3),
+                        list = [155,215,275];
+
+                $('#wave').css({ height: list[rand]});
+            }
+            i++;
+
+        },
+        complete: function() {
+            $('#wave').css({ marginLeft: 0});
+            bgrun();
+        }
+    });
+}
+bgrun();
+//setInterval(bgrun, 4000);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title></title>
+    <style type="text/css">
+        html, body{
+            margin:0;
+            padding:0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            margin:0 auto;
+        }
+        .bgimg{
+            width: 100%;
+            height: 100vh;
+        }
+        .rel{
+            position: relative;
+        }
+        .abs{
+            position: absolute;
+        }
+        #objpos{
+            top: 0;
+            width:100%;
+        }
+        #objwrap{
+            width: 30%;
+            height: 100vh;
+            margin:0 auto;
+        }
+        .obj {
+            width:100%;
+            height: auto;
+            bottom: 30%;
+            display: block;
+        }
+        #startwrap{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #startwrap img{
+            width: 100%;
+        }
+        #start{
+            text-align: center;
+            font-size: 1.4em;
+            padding: 1.3em;
+            border:3px solid #fff;
+            background: #1e5799;
+            background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+            background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8));
+            background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            background: radial-gradient(ellipse at center,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 );
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 15px;
+            border-radius: 25px;
+            position: absolute;
+            width: 40%;
+            left: 30%;
+            bottom: 22%;
+            color: #fff;
+            letter-spacing: 4px;
+            -webkit-transform: rotate(-13deg);
+            transform: rotate(-13deg);
+            opacity: 0.9;
+        }
+        .wind{
+            position: absolute;
+            top:0;
+            width:100%;
+            height:100vh;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .winds{
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            opacity: 0.5;
+        }
+        .bgcoral{
+            background-color:coral;
+        }
+        .bglightblue{
+            background-color:lightblue;
+        }
+        .bglightgreen{
+            background-color:lightgreen;
+        }
+        .current{
+            position: absolute;
+            bottom: 4vh;
+            width:100%;
+            height: 4vh;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .holes{
+            position: absolute;
+            bottom: 0vh;
+            width:100%;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .holes img{
+            width:100%;
+            height: 7vh;
+        }
+        .next{
+            position: absolute;
+            bottom: 0;
+            width:100%;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .indicators{
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            height:1vh;
+        }
+        .next .indicators{
+
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .none{
+            display:none;
+        }
+    </style>
+    <link type="text/css" href="css/animate.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="startwrap" class="none">
+    <img src="images/intro.jpg">
+    <div id="linkwrap">
+        <div id="url"></div>
+    </div>
+    <div id="start" class="">站在風口上</div>
+</div>
+
+<div class="container rel none2">
+    <div id="bgwrap" class="rel">
+        <img src="images/bg.jpg" class="bgimg">
+    </div>
+    <div id="objpos" class="abs">
+        <div id="objwrap" class="rel">
+            <img src="images/pig.png" id="myobj" class="obj abs">
+        </div>
+    </div>
+    <div class="wind">
+        <div class="winds bgcoral"></div>
+        <div class="winds bglightblue"></div>
+        <div class="winds bglightgreen"></div>
+    </div>
+
+    <div class="current">
+        <div class="indicators bgcoral"></div>
+        <div class="indicators bglightblue"></div>
+        <div class="indicators bglightgreen"></div>
+    </div>
+
+    <div class="holes">
+        <div class="hole"><img src="images/hole.png"></div>
+        <div class="hole"><img src="images/hole.png"></div>
+        <div class="hole"><img src="images/hole.png"></div>
+    </div>
+
+    <div class="next">
+        <div class="indicators bgcoral"></div>
+        <div class="indicators bglightblue"></div>
+        <div class="indicators bglightgreen"></div>
+    </div>
+</div>
+
+
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src="https://apis.google.com/js/client.js?onload=initgl"></script>
+<script>
+    function makeRequest() {
+        var request = gapi.client.urlshortener.url.insert({
+            'resource': {'longUrl': 'https://codepen.io/'}
+        });
+        request.then(function(response) {
+
+            document.getElementById('qr').src = response.result.id + '.qr';
+        }, function(reason) {
+            console.log('Error: ' + reason.result.error.message);
+        });
+    }
+
+    function initgl() {
+        //gapi.client.setApiKey('AIzaSyCvJ8kSN16cUoz_5wMLxDwPZ3XTeBc8a88');
+        //gapi.client.load('urlshortener', 'v1').then(makeRequest);
+    }
+
+    function deviceOrientationHandler(deg) {
+        var myobj = document.getElementById("myobj");
+
+        myobj.style.webkitTransform = "rotate("+ deg/5 +"deg)";
+        myobj.style.transform = "rotate("+ deg/5 +"deg)";
+        myobj.style.marginLeft = (0 + deg*6) + "px";
+    }
+    function readytogo(){
+        $('#start').addClass('animated swing');
+
+        setTimeout(function(){
+            $('#startwrap').hide();
+            $('.container').show();
+            start();
+        }, 1000);
+    }
+    function start() {
+        var count = 2;
+        setInterval(function(){
+            count = count % 76 + 1;
+            $('.bgimg')[0].src = 'images/map/sshot-' + count + '.jpg';
+            count++;
+        }, 200);
+    }
+    //init();
+
+</script>
+
+<script>
+    /*
+    var rootRef = new Firebase('https://shining-fire-7511.firebaseio-demo.com/meta');
+    var room_num = 0;
+
+    rootRef.endAt().limit(1).once('value', function(snapshot) {
+        var message = null;
+
+        snapshot.forEach(function(snap) {
+            message = snap.val();
+            console.log(message);
+        });
+
+        if (message === null) {
+            rootRef.push({room_count: 0});
+            return;
+        }
+
+        var room_count = message.room_count + 1;
+        room_num = room_count;
+        rootRef.push({room_count: room_count});
+
+        console.log(room_count)
+        console.log('end')
+
+    });
+
+
+    var myDataRef = new Firebase('https://shining-fire-7511.firebaseio-demo.com/rooms/room1');
+    myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        deviceOrientationHandler(message.deg);
+    });
+    */
+</script>
+</body>
+</html>

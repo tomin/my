@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html ng-app="drag-and-drop">
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Drag &amp; Drop: Food</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn{padding: 0}
+        .btn-droppable { width: 100px; height: 105px; margin-right: 2px; }
+        .btn-draggable { width: 100px; height: 85px;  }
+        .emage { height: 80px; padding: 4px }
+        .emage.success{background: green}
+        img{
+          width: 100%;
+          height: 100%;
+        }
+        .target{
+          float:left;
+          margin-right: 2px;
+          width: 100px;
+        }
+        .myrow{
+          width: 320px;
+        }
+        .source{
+              margin-top: 10px;
+              border: 1px solid blue;
+              min-height: 120px;
+        }
+        .done{
+            font-size: 28px;
+            color: yellow;
+            background: #000;
+        }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="oneCtrl">
+      <div class='myrow ng-cloak'>
+          <div class="target" ng-repeat="image in images">
+            <div class="btn btn-droppable" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1"
+                 jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback($index)',onOver: 'overCallback', onOut: 'outCallback'}" data-id="{{$index}}">
+              <div class='emage {{list1[$index].style}}'><img ng-src="{{image.thumb}}"/></div>
+              {{list1[$index].title}}
+            </div>
+          </div>
+          <div style="clear:both"></div>
+      </div>
+      <div class="myrow source">
+          <div class="btn btn-droppable" ng-repeat="item in list2" ng-model='list2'>
+            <div class="btn btn-draggable target" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2"
+                 jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true, onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback'}"
+                 ng-hide="!item.title" data-id="{{$index}}">
+                <img ng-src="{{item.thumb}}"/>
+                {{item.title}}
+            </div>
+          </div>
+          <div style="clear:both"></div>
+      </div>
+      <div class="done">{{clear}}</div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+    <script src="http://test.ads.ad2iction.com/m/adUrl/custom/friday/js/angular-dragdrop.min.js"></script>
+    <!--
+    <script src="http://cdn.jsdelivr.net/angular.dragdrop/1.07/angular-dragdrop.min.js"></script>
+    <script src="../src/angular-dragdrop.js"></script>
+    -->
+    <script type="text/javascript">
+        var App = angular.module('drag-and-drop', ['ngDragDrop']);
+        var url = 'http://test.ads.ad2iction.com/m/adUrl/custom/friday/tgfimg/';
+
+        App.controller('oneCtrl', function($scope, $timeout) {
+            $scope.images = [
+                {'thumb': url + '1_b.jpg'},
+                {'thumb': url + '2_b.jpg'},
+                {'thumb': url + '3_b.jpg'},
+                {'thumb': url + '4_b.jpg'},
+                {'thumb': url + '5_b.jpg'}
+            ];
+            $scope.list1 = [];
+            angular.forEach($scope.images, function(val, key) {
+                $scope.list1.push({});
+            });
+            $scope.list2 = [
+                { 'title': '美味三奇雞', 'drag': true, 'thumb': url + '1_n.jpg' },
+                { 'title': '義式蒜辣小管圈', 'drag': true, 'thumb': url + '2_n.jpg' },
+                { 'title': '香酥馬芝拉條', 'drag': true, 'thumb': url + '3_n.jpg' },
+                { 'title': '炭烤培根雞肉串', 'drag': true, 'thumb': url + '4_n.jpg' },
+                { 'title': '紐約辣雞翅', 'drag': true, 'thumb': url + '5_n.jpg' }
+            ];
+            $scope.done = 0;
+            $scope.clear = '';
+
+            $scope.startCallback = function(event, ui, item, index) {
+                //console.log('You started draggin: ' + item.title);
+                $scope.draggedTitle = item.title;
+                $scope.draggedIndex = index;
+            };
+
+            $scope.stopCallback = function(event, ui) {
+                //console.log('Why did you stop draggin me?');
+            };
+
+            $scope.dragCallback = function(event, ui) {
+                //console.log('hey, look I`m flying');
+            };
+
+            $scope.dropCallback = function(event, ui, index) {
+                //console.log('hey, you dumped me :-(' , $scope.draggedTitle);
+                $scope.list1[index].style = 'success';
+                $scope.images[index].thumb = $scope.list1[index].thumb.replace('_n','');
+                $scope.done++;
+                if ($scope.done === 5) {
+                    $scope.clear = 'Done';
+                }
+            };
+
+            $scope.overCallback = function(event, ui) {
+                //console.log('Look, I`m over you');
+            };
+
+            $scope.outCallback = function(event, ui) {
+                //console.log('I`m not, hehe');
+            };
+
+            $scope.optionsList1 = {
+                accept: function(drag) {
+                    var map = [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                    ];
+                    var dropId = $(this).data('id');
+                    var dragId = $(drag).data('id');
+
+                    if (map[$scope.draggedIndex] === dropId) {
+                        if ($scope.draggedIndex === dragId) {
+                            return true;
+                        } else {
+                            $scope.list1[dropId].style = 'fail';
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            };
+        });
+
+        function touchHandler(event) {
+            var touch = event.changedTouches[0];
+
+            var simulatedEvent = document.createEvent("MouseEvent");
+            simulatedEvent.initMouseEvent({
+                touchstart: "mousedown",
+                touchmove: "mousemove",
+                touchend: "mouseup"
+            }[event.type], true, true, window, 1,
+                    touch.screenX, touch.screenY,
+                    touch.clientX, touch.clientY, false,
+                    false, false, false, 0, null);
+
+            touch.target.dispatchEvent(simulatedEvent);
+            event.preventDefault();
+        }
+
+        function init() {
+            document.addEventListener("touchstart", touchHandler, true);
+            document.addEventListener("touchmove", touchHandler, true);
+            document.addEventListener("touchend", touchHandler, true);
+            document.addEventListener("touchcancel", touchHandler, true);
+        }
+        init();
+    </script>
+  </body>
+</html>

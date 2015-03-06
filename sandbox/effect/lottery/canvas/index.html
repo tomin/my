@@ -1,0 +1,157 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<style>
+    #wrap{
+        width:500px;
+        margin:0 auto;
+    }
+    #start{
+        border:1px solid #000;margin:0 auto;padding:1em 0.5em;font-size:2em;text-align: center;
+        width: 60%;
+        border-radius:30px;
+    }
+    #start:hover{
+        cursor: pointer;
+        background-color: yellow;
+    }
+</style>
+
+<div id="wrap">
+    <canvas id="wheelcanvas" width="500" height="500"></canvas>
+    <div id="start" onclick="spin()">轉吧！命運霓虹燈！</div>
+    <div style="text-align: center;margin-top:3em;color:gray"><i>士銘 & 芝盈 婚禮抽獎程式</i></div>
+</div>
+
+<script>
+    var colors = ["#B8D430", "#3AB745", "#029990", "#3501CB",
+        "#2E2C75", "#673A7E", "#CC0071", "#F80120",
+        "#F35B20", "#FB9A00", "#FFCC00", "#FEF200"];
+    var restaraunts = ["1", "2", "3", "4",
+        "5", "6", "7", "8",
+        "9", "10", "11", "12"];
+
+    var startAngle = 0;
+    var arc = Math.PI / 6;
+    var spinTimeout = null;
+
+    var spinArcStart = 10;
+    var spinTime = 0;
+    var spinTimeTotal = 0;
+
+    var ctx;
+
+    function draw() {
+        drawRouletteWheel();
+    }
+
+    function drawRouletteWheel() {
+        var canvas = document.getElementById("wheelcanvas");
+        if (canvas.getContext) {
+            var outsideRadius = 200;
+            var textRadius = 160;
+            var insideRadius = 125;
+
+            ctx = canvas.getContext("2d");
+            ctx.clearRect(0,0,500,500);
+
+
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+
+            ctx.font = 'bold 24px sans-serif';
+
+            for(var i = 0; i < 12; i++) {
+                var angle = startAngle + i * arc;
+                ctx.fillStyle = colors[i];
+
+                ctx.beginPath();
+                ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
+                ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+                ctx.stroke();
+                ctx.fill();
+
+                ctx.save();
+                ctx.shadowOffsetX = -1;
+                ctx.shadowOffsetY = -1;
+                ctx.shadowBlur    = 0;
+                ctx.shadowColor   = "rgb(220,220,220)";
+                ctx.fillStyle = "black";
+                ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius, 250 + Math.sin(angle + arc / 2) * textRadius);
+                ctx.rotate(angle + arc / 2 + Math.PI / 2);
+                var text = restaraunts[i];
+                ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+                ctx.restore();
+            }
+
+            //Arrow
+            var img = new Image();
+            img.onload = function(){
+                ctx.drawImage(img, 210, 0, 80, 90);
+            };
+            img.src = "images/arrow.png";
+
+            ctx.fillStyle = "black";
+
+            /*
+            ctx.beginPath();
+            ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
+            ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
+            ctx.lineTo(250 + 4, 250 - (outsideRadius - 5));
+            ctx.lineTo(250 + 9, 250 - (outsideRadius - 5));
+            ctx.lineTo(250 + 0, 250 - (outsideRadius - 13));
+            ctx.lineTo(250 - 9, 250 - (outsideRadius - 5));
+            ctx.lineTo(250 - 4, 250 - (outsideRadius - 5));
+            ctx.lineTo(250 - 4, 250 - (outsideRadius + 5));
+            ctx.fill();
+            */
+        }
+    }
+
+    function spin() {
+        spinAngleStart = Math.random() * 10 + 10;
+        spinAngleStart = 17.973014153540134;
+        console.log(spinAngleStart);
+
+
+        spinTime = 0;
+        spinTimeTotal = Math.random() * 3 + 10 * 1000;
+        console.log(spinTimeTotal);
+        
+        spinTimeTotal = 10000.716111719608;
+
+        rotateWheel();
+    }
+
+    function rotateWheel() {
+        spinTime += 30;
+        if(spinTime >= spinTimeTotal) {
+            stopRotateWheel();
+            return;
+        }
+        var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+        startAngle += (spinAngle * Math.PI / 180);
+
+        drawRouletteWheel();
+        spinTimeout = setTimeout('rotateWheel()', 30);
+    }
+
+    function stopRotateWheel() {
+        clearTimeout(spinTimeout);
+        var degrees = startAngle * 180 / Math.PI + 90;
+        var arcd = arc * 180 / Math.PI;
+        var index = Math.floor((360 - degrees % 360) / arcd);
+        ctx.save();
+        ctx.font = 'bold 100px serif';
+        var text = restaraunts[index]
+        ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+        ctx.restore();
+    }
+
+    function easeOut(t, b, c, d) {
+        var ts = (t/=d)*t;
+        var tc = ts*t;
+        return b+c*(tc + -2*ts + 2*t);
+    }
+
+    draw();
+</script>
+

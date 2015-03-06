@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+<meta charset="UTF-8">
+<meta property="fb:app_id"          content="121135108001314" />
+<meta property="og:type"            content="website" />
+<meta property="og:url"             content="http://content.ad2iction.com/hola/fb/" />
+<meta property="og:title"           content="FB Template" />
+<meta property="og:image"           content="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-prn1/t39.2178-6/851565_496755187057665_544240989_n.jpg" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>FB Template</title>
+<style type="text/css">
+body{
+    margin:0;
+    overflow-x: hidden;
+}
+#wrap{
+    position: relative;
+    width: 320px;
+    margin: 0 auto;
+}
+#testwrap{
+    background-color: #000;
+}
+.button {
+    color: #fff;
+    border: solid 1px #81db86;
+    background: #53d95b;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7ade6f), to(#63b65b));
+    background: -moz-linear-gradient(top,  #7ade6f,  #63b65b);
+    width: 300px;
+    margin-left: 5px;
+    font-size: 24px;
+    margin-top: 20px;
+    padding: 4px 0;
+    float: left;
+    vertical-align: baseline;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;    
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);    
+}
+.button:hover {
+    background: #6bc170;
+    background: -webkit-gradient(linear, left top, left bottom, from(#5cd764), to(#46c84e));
+    background: -moz-linear-gradient(top,  #5cd764,  #46c84e);
+}
+.button:active {
+    color: #f3f3f3;
+    background: -webkit-gradient(linear, left top, left bottom, from(#63b65b), to(#7ade6f));
+    background: -moz-linear-gradient(top,  #63b65b,  #7ade6f);
+}
+.hidden{
+    display: none;
+}
+.invisible{
+    visibility: hidden;
+}
+#puzzlegame{
+    position: relative;
+    width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+#imgwrap img{
+    width: 320px;
+    height: auto;
+}
+#puzzlewrap{
+    position: absolute;
+    top:0;
+}
+.puzzle{
+    float:left;
+    display:block;
+    width:10px;
+    height:10px;
+    background-color: #000;
+    position: relative;
+}
+.slideRight{
+    animation-name: slideRight;
+    -webkit-animation-name: slideRight;
+
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+
+    visibility: visible !important;
+}
+.slideRightFast{
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+}
+@keyframes slideRight {
+    0% {
+        transform: translateY(-1000%);
+    }
+    50%{
+        transform: translateY(-250%);
+    }
+    65%{
+        transform: translateY(-150%);
+    }
+    80%{
+        transform: translateY(-50%);
+    }
+    95%{
+        transform: translateY(-2%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes slideRight {
+    0% {
+        -webkit-transform: translateY(-1000%);
+    }
+    50%{
+        -webkit-transform: translateY(-250%);
+    }
+    65%{
+        -webkit-transform: translateY(-150%);
+    }
+    80%{
+        -webkit-transform: translateY(-50%);
+    }
+    95%{
+        -webkit-transform: translateY(-2%);
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+    }
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
+}
+#friendwrap{
+    margin-top: -4em;
+    z-index: 10;
+}
+.friend{
+    position: relative;
+    float:left;
+    z-index: 999;
+    height: 14px;
+    width:48%;
+    margin: 0 2px 7px 2px;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 4px 0 4px 0;
+    font-size: 0.7em;
+    background-color: black;
+    color: white;
+    opacity: .7;
+    border: 1px solid #fff;
+}
+.friend:hover{
+    background-color: #ccc;
+    color: navy;
+    cursor: pointer;
+}
+#feedback{
+    text-align: center;
+    color: yellow;
+    min-height: 1em;
+}
+#progressbar {
+    width: 314px;
+    background-color: #333;
+    border-radius: 13px; /* (height of inner div) / 2 + padding */
+    padding: 3px;
+}
+#progressbar > div {
+    background-color: green;
+    width: 100%; /* Adjust with JavaScript */
+    height: 20px;
+    border-radius: 10px;
+}
+#start{
+    display: block;
+}
+</style>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="wrap">
+  <div id="testwrap" class="hidden">
+      <div id="progressbar">
+          <div id="progressdata"></div>
+      </div>
+
+      <div id="puzzlegame" >
+            <div id="imgwrap"></div>
+            <div id="puzzlewrap" >
+                <!-- span.puzzle#puzzle$*1023 -->
+                <span class="puzzle" id="puzzle0"></span><span class="puzzle" id="puzzle1"></span><span class="puzzle" id="puzzle2"></span><span class="puzzle" id="puzzle3"></span><span class="puzzle" id="puzzle4"></span><span class="puzzle" id="puzzle5"></span><span class="puzzle" id="puzzle6"></span><span class="puzzle" id="puzzle7"></span><span class="puzzle" id="puzzle8"></span><span class="puzzle" id="puzzle9"></span><span class="puzzle" id="puzzle10"></span><span class="puzzle" id="puzzle11"></span><span class="puzzle" id="puzzle12"></span><span class="puzzle" id="puzzle13"></span><span class="puzzle" id="puzzle14"></span><span class="puzzle" id="puzzle15"></span><span class="puzzle" id="puzzle16"></span><span class="puzzle" id="puzzle17"></span><span class="puzzle" id="puzzle18"></span><span class="puzzle" id="puzzle19"></span><span class="puzzle" id="puzzle20"></span><span class="puzzle" id="puzzle21"></span><span class="puzzle" id="puzzle22"></span><span class="puzzle" id="puzzle23"></span><span class="puzzle" id="puzzle24"></span><span class="puzzle" id="puzzle25"></span><span class="puzzle" id="puzzle26"></span><span class="puzzle" id="puzzle27"></span><span class="puzzle" id="puzzle28"></span><span class="puzzle" id="puzzle29"></span><span class="puzzle" id="puzzle30"></span><span class="puzzle" id="puzzle31"></span><span class="puzzle" id="puzzle32"></span><span class="puzzle" id="puzzle33"></span><span class="puzzle" id="puzzle34"></span><span class="puzzle" id="puzzle35"></span><span class="puzzle" id="puzzle36"></span><span class="puzzle" id="puzzle37"></span><span class="puzzle" id="puzzle38"></span><span class="puzzle" id="puzzle39"></span><span class="puzzle" id="puzzle40"></span><span class="puzzle" id="puzzle41"></span><span class="puzzle" id="puzzle42"></span><span class="puzzle" id="puzzle43"></span><span class="puzzle" id="puzzle44"></span><span class="puzzle" id="puzzle45"></span><span class="puzzle" id="puzzle46"></span><span class="puzzle" id="puzzle47"></span><span class="puzzle" id="puzzle48"></span><span class="puzzle" id="puzzle49"></span><span class="puzzle" id="puzzle50"></span><span class="puzzle" id="puzzle51"></span><span class="puzzle" id="puzzle52"></span><span class="puzzle" id="puzzle53"></span><span class="puzzle" id="puzzle54"></span><span class="puzzle" id="puzzle55"></span><span class="puzzle" id="puzzle56"></span><span class="puzzle" id="puzzle57"></span><span class="puzzle" id="puzzle58"></span><span class="puzzle" id="puzzle59"></span><span class="puzzle" id="puzzle60"></span><span class="puzzle" id="puzzle61"></span><span class="puzzle" id="puzzle62"></span><span class="puzzle" id="puzzle63"></span><span class="puzzle" id="puzzle64"></span><span class="puzzle" id="puzzle65"></span><span class="puzzle" id="puzzle66"></span><span class="puzzle" id="puzzle67"></span><span class="puzzle" id="puzzle68"></span><span class="puzzle" id="puzzle69"></span><span class="puzzle" id="puzzle70"></span><span class="puzzle" id="puzzle71"></span><span class="puzzle" id="puzzle72"></span><span class="puzzle" id="puzzle73"></span><span class="puzzle" id="puzzle74"></span><span class="puzzle" id="puzzle75"></span><span class="puzzle" id="puzzle76"></span><span class="puzzle" id="puzzle77"></span><span class="puzzle" id="puzzle78"></span><span class="puzzle" id="puzzle79"></span><span class="puzzle" id="puzzle80"></span><span class="puzzle" id="puzzle81"></span><span class="puzzle" id="puzzle82"></span><span class="puzzle" id="puzzle83"></span><span class="puzzle" id="puzzle84"></span><span class="puzzle" id="puzzle85"></span><span class="puzzle" id="puzzle86"></span><span class="puzzle" id="puzzle87"></span><span class="puzzle" id="puzzle88"></span><span class="puzzle" id="puzzle89"></span><span class="puzzle" id="puzzle90"></span><span class="puzzle" id="puzzle91"></span><span class="puzzle" id="puzzle92"></span><span class="puzzle" id="puzzle93"></span><span class="puzzle" id="puzzle94"></span><span class="puzzle" id="puzzle95"></span><span class="puzzle" id="puzzle96"></span><span class="puzzle" id="puzzle97"></span><span class="puzzle" id="puzzle98"></span><span class="puzzle" id="puzzle99"></span><span class="puzzle" id="puzzle100"></span><span class="puzzle" id="puzzle101"></span><span class="puzzle" id="puzzle102"></span><span class="puzzle" id="puzzle103"></span><span class="puzzle" id="puzzle104"></span><span class="puzzle" id="puzzle105"></span><span class="puzzle" id="puzzle106"></span><span class="puzzle" id="puzzle107"></span><span class="puzzle" id="puzzle108"></span><span class="puzzle" id="puzzle109"></span><span class="puzzle" id="puzzle110"></span><span class="puzzle" id="puzzle111"></span><span class="puzzle" id="puzzle112"></span><span class="puzzle" id="puzzle113"></span><span class="puzzle" id="puzzle114"></span><span class="puzzle" id="puzzle115"></span><span class="puzzle" id="puzzle116"></span><span class="puzzle" id="puzzle117"></span><span class="puzzle" id="puzzle118"></span><span class="puzzle" id="puzzle119"></span><span class="puzzle" id="puzzle120"></span><span class="puzzle" id="puzzle121"></span><span class="puzzle" id="puzzle122"></span><span class="puzzle" id="puzzle123"></span><span class="puzzle" id="puzzle124"></span><span class="puzzle" id="puzzle125"></span><span class="puzzle" id="puzzle126"></span><span class="puzzle" id="puzzle127"></span><span class="puzzle" id="puzzle128"></span><span class="puzzle" id="puzzle129"></span><span class="puzzle" id="puzzle130"></span><span class="puzzle" id="puzzle131"></span><span class="puzzle" id="puzzle132"></span><span class="puzzle" id="puzzle133"></span><span class="puzzle" id="puzzle134"></span><span class="puzzle" id="puzzle135"></span><span class="puzzle" id="puzzle136"></span><span class="puzzle" id="puzzle137"></span><span class="puzzle" id="puzzle138"></span><span class="puzzle" id="puzzle139"></span><span class="puzzle" id="puzzle140"></span><span class="puzzle" id="puzzle141"></span><span class="puzzle" id="puzzle142"></span><span class="puzzle" id="puzzle143"></span><span class="puzzle" id="puzzle144"></span><span class="puzzle" id="puzzle145"></span><span class="puzzle" id="puzzle146"></span><span class="puzzle" id="puzzle147"></span><span class="puzzle" id="puzzle148"></span><span class="puzzle" id="puzzle149"></span><span class="puzzle" id="puzzle150"></span><span class="puzzle" id="puzzle151"></span><span class="puzzle" id="puzzle152"></span><span class="puzzle" id="puzzle153"></span><span class="puzzle" id="puzzle154"></span><span class="puzzle" id="puzzle155"></span><span class="puzzle" id="puzzle156"></span><span class="puzzle" id="puzzle157"></span><span class="puzzle" id="puzzle158"></span><span class="puzzle" id="puzzle159"></span><span class="puzzle" id="puzzle160"></span><span class="puzzle" id="puzzle161"></span><span class="puzzle" id="puzzle162"></span><span class="puzzle" id="puzzle163"></span><span class="puzzle" id="puzzle164"></span><span class="puzzle" id="puzzle165"></span><span class="puzzle" id="puzzle166"></span><span class="puzzle" id="puzzle167"></span><span class="puzzle" id="puzzle168"></span><span class="puzzle" id="puzzle169"></span><span class="puzzle" id="puzzle170"></span><span class="puzzle" id="puzzle171"></span><span class="puzzle" id="puzzle172"></span><span class="puzzle" id="puzzle173"></span><span class="puzzle" id="puzzle174"></span><span class="puzzle" id="puzzle175"></span><span class="puzzle" id="puzzle176"></span><span class="puzzle" id="puzzle177"></span><span class="puzzle" id="puzzle178"></span><span class="puzzle" id="puzzle179"></span><span class="puzzle" id="puzzle180"></span><span class="puzzle" id="puzzle181"></span><span class="puzzle" id="puzzle182"></span><span class="puzzle" id="puzzle183"></span><span class="puzzle" id="puzzle184"></span><span class="puzzle" id="puzzle185"></span><span class="puzzle" id="puzzle186"></span><span class="puzzle" id="puzzle187"></span><span class="puzzle" id="puzzle188"></span><span class="puzzle" id="puzzle189"></span><span class="puzzle" id="puzzle190"></span><span class="puzzle" id="puzzle191"></span><span class="puzzle" id="puzzle192"></span><span class="puzzle" id="puzzle193"></span><span class="puzzle" id="puzzle194"></span><span class="puzzle" id="puzzle195"></span><span class="puzzle" id="puzzle196"></span><span class="puzzle" id="puzzle197"></span><span class="puzzle" id="puzzle198"></span><span class="puzzle" id="puzzle199"></span><span class="puzzle" id="puzzle200"></span><span class="puzzle" id="puzzle201"></span><span class="puzzle" id="puzzle202"></span><span class="puzzle" id="puzzle203"></span><span class="puzzle" id="puzzle204"></span><span class="puzzle" id="puzzle205"></span><span class="puzzle" id="puzzle206"></span><span class="puzzle" id="puzzle207"></span><span class="puzzle" id="puzzle208"></span><span class="puzzle" id="puzzle209"></span><span class="puzzle" id="puzzle210"></span><span class="puzzle" id="puzzle211"></span><span class="puzzle" id="puzzle212"></span><span class="puzzle" id="puzzle213"></span><span class="puzzle" id="puzzle214"></span><span class="puzzle" id="puzzle215"></span><span class="puzzle" id="puzzle216"></span><span class="puzzle" id="puzzle217"></span><span class="puzzle" id="puzzle218"></span><span class="puzzle" id="puzzle219"></span><span class="puzzle" id="puzzle220"></span><span class="puzzle" id="puzzle221"></span><span class="puzzle" id="puzzle222"></span><span class="puzzle" id="puzzle223"></span><span class="puzzle" id="puzzle224"></span><span class="puzzle" id="puzzle225"></span><span class="puzzle" id="puzzle226"></span><span class="puzzle" id="puzzle227"></span><span class="puzzle" id="puzzle228"></span><span class="puzzle" id="puzzle229"></span><span class="puzzle" id="puzzle230"></span><span class="puzzle" id="puzzle231"></span><span class="puzzle" id="puzzle232"></span><span class="puzzle" id="puzzle233"></span><span class="puzzle" id="puzzle234"></span><span class="puzzle" id="puzzle235"></span><span class="puzzle" id="puzzle236"></span><span class="puzzle" id="puzzle237"></span><span class="puzzle" id="puzzle238"></span><span class="puzzle" id="puzzle239"></span><span class="puzzle" id="puzzle240"></span><span class="puzzle" id="puzzle241"></span><span class="puzzle" id="puzzle242"></span><span class="puzzle" id="puzzle243"></span><span class="puzzle" id="puzzle244"></span><span class="puzzle" id="puzzle245"></span><span class="puzzle" id="puzzle246"></span><span class="puzzle" id="puzzle247"></span><span class="puzzle" id="puzzle248"></span><span class="puzzle" id="puzzle249"></span><span class="puzzle" id="puzzle250"></span><span class="puzzle" id="puzzle251"></span><span class="puzzle" id="puzzle252"></span><span class="puzzle" id="puzzle253"></span><span class="puzzle" id="puzzle254"></span><span class="puzzle" id="puzzle255"></span><span class="puzzle" id="puzzle256"></span><span class="puzzle" id="puzzle257"></span><span class="puzzle" id="puzzle258"></span><span class="puzzle" id="puzzle259"></span><span class="puzzle" id="puzzle260"></span><span class="puzzle" id="puzzle261"></span><span class="puzzle" id="puzzle262"></span><span class="puzzle" id="puzzle263"></span><span class="puzzle" id="puzzle264"></span><span class="puzzle" id="puzzle265"></span><span class="puzzle" id="puzzle266"></span><span class="puzzle" id="puzzle267"></span><span class="puzzle" id="puzzle268"></span><span class="puzzle" id="puzzle269"></span><span class="puzzle" id="puzzle270"></span><span class="puzzle" id="puzzle271"></span><span class="puzzle" id="puzzle272"></span><span class="puzzle" id="puzzle273"></span><span class="puzzle" id="puzzle274"></span><span class="puzzle" id="puzzle275"></span><span class="puzzle" id="puzzle276"></span><span class="puzzle" id="puzzle277"></span><span class="puzzle" id="puzzle278"></span><span class="puzzle" id="puzzle279"></span><span class="puzzle" id="puzzle280"></span><span class="puzzle" id="puzzle281"></span><span class="puzzle" id="puzzle282"></span><span class="puzzle" id="puzzle283"></span><span class="puzzle" id="puzzle284"></span><span class="puzzle" id="puzzle285"></span><span class="puzzle" id="puzzle286"></span><span class="puzzle" id="puzzle287"></span><span class="puzzle" id="puzzle288"></span><span class="puzzle" id="puzzle289"></span><span class="puzzle" id="puzzle290"></span><span class="puzzle" id="puzzle291"></span><span class="puzzle" id="puzzle292"></span><span class="puzzle" id="puzzle293"></span><span class="puzzle" id="puzzle294"></span><span class="puzzle" id="puzzle295"></span><span class="puzzle" id="puzzle296"></span><span class="puzzle" id="puzzle297"></span><span class="puzzle" id="puzzle298"></span><span class="puzzle" id="puzzle299"></span><span class="puzzle" id="puzzle300"></span><span class="puzzle" id="puzzle301"></span><span class="puzzle" id="puzzle302"></span><span class="puzzle" id="puzzle303"></span><span class="puzzle" id="puzzle304"></span><span class="puzzle" id="puzzle305"></span><span class="puzzle" id="puzzle306"></span><span class="puzzle" id="puzzle307"></span><span class="puzzle" id="puzzle308"></span><span class="puzzle" id="puzzle309"></span><span class="puzzle" id="puzzle310"></span><span class="puzzle" id="puzzle311"></span><span class="puzzle" id="puzzle312"></span><span class="puzzle" id="puzzle313"></span><span class="puzzle" id="puzzle314"></span><span class="puzzle" id="puzzle315"></span><span class="puzzle" id="puzzle316"></span><span class="puzzle" id="puzzle317"></span><span class="puzzle" id="puzzle318"></span><span class="puzzle" id="puzzle319"></span><span class="puzzle" id="puzzle320"></span><span class="puzzle" id="puzzle321"></span><span class="puzzle" id="puzzle322"></span><span class="puzzle" id="puzzle323"></span><span class="puzzle" id="puzzle324"></span><span class="puzzle" id="puzzle325"></span><span class="puzzle" id="puzzle326"></span><span class="puzzle" id="puzzle327"></span><span class="puzzle" id="puzzle328"></span><span class="puzzle" id="puzzle329"></span><span class="puzzle" id="puzzle330"></span><span class="puzzle" id="puzzle331"></span><span class="puzzle" id="puzzle332"></span><span class="puzzle" id="puzzle333"></span><span class="puzzle" id="puzzle334"></span><span class="puzzle" id="puzzle335"></span><span class="puzzle" id="puzzle336"></span><span class="puzzle" id="puzzle337"></span><span class="puzzle" id="puzzle338"></span><span class="puzzle" id="puzzle339"></span><span class="puzzle" id="puzzle340"></span><span class="puzzle" id="puzzle341"></span><span class="puzzle" id="puzzle342"></span><span class="puzzle" id="puzzle343"></span><span class="puzzle" id="puzzle344"></span><span class="puzzle" id="puzzle345"></span><span class="puzzle" id="puzzle346"></span><span class="puzzle" id="puzzle347"></span><span class="puzzle" id="puzzle348"></span><span class="puzzle" id="puzzle349"></span><span class="puzzle" id="puzzle350"></span><span class="puzzle" id="puzzle351"></span><span class="puzzle" id="puzzle352"></span><span class="puzzle" id="puzzle353"></span><span class="puzzle" id="puzzle354"></span><span class="puzzle" id="puzzle355"></span><span class="puzzle" id="puzzle356"></span><span class="puzzle" id="puzzle357"></span><span class="puzzle" id="puzzle358"></span><span class="puzzle" id="puzzle359"></span><span class="puzzle" id="puzzle360"></span><span class="puzzle" id="puzzle361"></span><span class="puzzle" id="puzzle362"></span><span class="puzzle" id="puzzle363"></span><span class="puzzle" id="puzzle364"></span><span class="puzzle" id="puzzle365"></span><span class="puzzle" id="puzzle366"></span><span class="puzzle" id="puzzle367"></span><span class="puzzle" id="puzzle368"></span><span class="puzzle" id="puzzle369"></span><span class="puzzle" id="puzzle370"></span><span class="puzzle" id="puzzle371"></span><span class="puzzle" id="puzzle372"></span><span class="puzzle" id="puzzle373"></span><span class="puzzle" id="puzzle374"></span><span class="puzzle" id="puzzle375"></span><span class="puzzle" id="puzzle376"></span><span class="puzzle" id="puzzle377"></span><span class="puzzle" id="puzzle378"></span><span class="puzzle" id="puzzle379"></span><span class="puzzle" id="puzzle380"></span><span class="puzzle" id="puzzle381"></span><span class="puzzle" id="puzzle382"></span><span class="puzzle" id="puzzle383"></span><span class="puzzle" id="puzzle384"></span><span class="puzzle" id="puzzle385"></span><span class="puzzle" id="puzzle386"></span><span class="puzzle" id="puzzle387"></span><span class="puzzle" id="puzzle388"></span><span class="puzzle" id="puzzle389"></span><span class="puzzle" id="puzzle390"></span><span class="puzzle" id="puzzle391"></span><span class="puzzle" id="puzzle392"></span><span class="puzzle" id="puzzle393"></span><span class="puzzle" id="puzzle394"></span><span class="puzzle" id="puzzle395"></span><span class="puzzle" id="puzzle396"></span><span class="puzzle" id="puzzle397"></span><span class="puzzle" id="puzzle398"></span><span class="puzzle" id="puzzle399"></span><span class="puzzle" id="puzzle400"></span><span class="puzzle" id="puzzle401"></span><span class="puzzle" id="puzzle402"></span><span class="puzzle" id="puzzle403"></span><span class="puzzle" id="puzzle404"></span><span class="puzzle" id="puzzle405"></span><span class="puzzle" id="puzzle406"></span><span class="puzzle" id="puzzle407"></span><span class="puzzle" id="puzzle408"></span><span class="puzzle" id="puzzle409"></span><span class="puzzle" id="puzzle410"></span><span class="puzzle" id="puzzle411"></span><span class="puzzle" id="puzzle412"></span><span class="puzzle" id="puzzle413"></span><span class="puzzle" id="puzzle414"></span><span class="puzzle" id="puzzle415"></span><span class="puzzle" id="puzzle416"></span><span class="puzzle" id="puzzle417"></span><span class="puzzle" id="puzzle418"></span><span class="puzzle" id="puzzle419"></span><span class="puzzle" id="puzzle420"></span><span class="puzzle" id="puzzle421"></span><span class="puzzle" id="puzzle422"></span><span class="puzzle" id="puzzle423"></span><span class="puzzle" id="puzzle424"></span><span class="puzzle" id="puzzle425"></span><span class="puzzle" id="puzzle426"></span><span class="puzzle" id="puzzle427"></span><span class="puzzle" id="puzzle428"></span><span class="puzzle" id="puzzle429"></span><span class="puzzle" id="puzzle430"></span><span class="puzzle" id="puzzle431"></span><span class="puzzle" id="puzzle432"></span><span class="puzzle" id="puzzle433"></span><span class="puzzle" id="puzzle434"></span><span class="puzzle" id="puzzle435"></span><span class="puzzle" id="puzzle436"></span><span class="puzzle" id="puzzle437"></span><span class="puzzle" id="puzzle438"></span><span class="puzzle" id="puzzle439"></span><span class="puzzle" id="puzzle440"></span><span class="puzzle" id="puzzle441"></span><span class="puzzle" id="puzzle442"></span><span class="puzzle" id="puzzle443"></span><span class="puzzle" id="puzzle444"></span><span class="puzzle" id="puzzle445"></span><span class="puzzle" id="puzzle446"></span><span class="puzzle" id="puzzle447"></span><span class="puzzle" id="puzzle448"></span><span class="puzzle" id="puzzle449"></span><span class="puzzle" id="puzzle450"></span><span class="puzzle" id="puzzle451"></span><span class="puzzle" id="puzzle452"></span><span class="puzzle" id="puzzle453"></span><span class="puzzle" id="puzzle454"></span><span class="puzzle" id="puzzle455"></span><span class="puzzle" id="puzzle456"></span><span class="puzzle" id="puzzle457"></span><span class="puzzle" id="puzzle458"></span><span class="puzzle" id="puzzle459"></span><span class="puzzle" id="puzzle460"></span><span class="puzzle" id="puzzle461"></span><span class="puzzle" id="puzzle462"></span><span class="puzzle" id="puzzle463"></span><span class="puzzle" id="puzzle464"></span><span class="puzzle" id="puzzle465"></span><span class="puzzle" id="puzzle466"></span><span class="puzzle" id="puzzle467"></span><span class="puzzle" id="puzzle468"></span><span class="puzzle" id="puzzle469"></span><span class="puzzle" id="puzzle470"></span><span class="puzzle" id="puzzle471"></span><span class="puzzle" id="puzzle472"></span><span class="puzzle" id="puzzle473"></span><span class="puzzle" id="puzzle474"></span><span class="puzzle" id="puzzle475"></span><span class="puzzle" id="puzzle476"></span><span class="puzzle" id="puzzle477"></span><span class="puzzle" id="puzzle478"></span><span class="puzzle" id="puzzle479"></span><span class="puzzle" id="puzzle480"></span><span class="puzzle" id="puzzle481"></span><span class="puzzle" id="puzzle482"></span><span class="puzzle" id="puzzle483"></span><span class="puzzle" id="puzzle484"></span><span class="puzzle" id="puzzle485"></span><span class="puzzle" id="puzzle486"></span><span class="puzzle" id="puzzle487"></span><span class="puzzle" id="puzzle488"></span><span class="puzzle" id="puzzle489"></span><span class="puzzle" id="puzzle490"></span><span class="puzzle" id="puzzle491"></span><span class="puzzle" id="puzzle492"></span><span class="puzzle" id="puzzle493"></span><span class="puzzle" id="puzzle494"></span><span class="puzzle" id="puzzle495"></span><span class="puzzle" id="puzzle496"></span><span class="puzzle" id="puzzle497"></span><span class="puzzle" id="puzzle498"></span><span class="puzzle" id="puzzle499"></span><span class="puzzle" id="puzzle500"></span><span class="puzzle" id="puzzle501"></span><span class="puzzle" id="puzzle502"></span><span class="puzzle" id="puzzle503"></span><span class="puzzle" id="puzzle504"></span><span class="puzzle" id="puzzle505"></span><span class="puzzle" id="puzzle506"></span><span class="puzzle" id="puzzle507"></span><span class="puzzle" id="puzzle508"></span><span class="puzzle" id="puzzle509"></span><span class="puzzle" id="puzzle510"></span><span class="puzzle" id="puzzle511"></span><span class="puzzle" id="puzzle512"></span><span class="puzzle" id="puzzle513"></span><span class="puzzle" id="puzzle514"></span><span class="puzzle" id="puzzle515"></span><span class="puzzle" id="puzzle516"></span><span class="puzzle" id="puzzle517"></span><span class="puzzle" id="puzzle518"></span><span class="puzzle" id="puzzle519"></span><span class="puzzle" id="puzzle520"></span><span class="puzzle" id="puzzle521"></span><span class="puzzle" id="puzzle522"></span><span class="puzzle" id="puzzle523"></span><span class="puzzle" id="puzzle524"></span><span class="puzzle" id="puzzle525"></span><span class="puzzle" id="puzzle526"></span><span class="puzzle" id="puzzle527"></span><span class="puzzle" id="puzzle528"></span><span class="puzzle" id="puzzle529"></span><span class="puzzle" id="puzzle530"></span><span class="puzzle" id="puzzle531"></span><span class="puzzle" id="puzzle532"></span><span class="puzzle" id="puzzle533"></span><span class="puzzle" id="puzzle534"></span><span class="puzzle" id="puzzle535"></span><span class="puzzle" id="puzzle536"></span><span class="puzzle" id="puzzle537"></span><span class="puzzle" id="puzzle538"></span><span class="puzzle" id="puzzle539"></span><span class="puzzle" id="puzzle540"></span><span class="puzzle" id="puzzle541"></span><span class="puzzle" id="puzzle542"></span><span class="puzzle" id="puzzle543"></span><span class="puzzle" id="puzzle544"></span><span class="puzzle" id="puzzle545"></span><span class="puzzle" id="puzzle546"></span><span class="puzzle" id="puzzle547"></span><span class="puzzle" id="puzzle548"></span><span class="puzzle" id="puzzle549"></span><span class="puzzle" id="puzzle550"></span><span class="puzzle" id="puzzle551"></span><span class="puzzle" id="puzzle552"></span><span class="puzzle" id="puzzle553"></span><span class="puzzle" id="puzzle554"></span><span class="puzzle" id="puzzle555"></span><span class="puzzle" id="puzzle556"></span><span class="puzzle" id="puzzle557"></span><span class="puzzle" id="puzzle558"></span><span class="puzzle" id="puzzle559"></span><span class="puzzle" id="puzzle560"></span><span class="puzzle" id="puzzle561"></span><span class="puzzle" id="puzzle562"></span><span class="puzzle" id="puzzle563"></span><span class="puzzle" id="puzzle564"></span><span class="puzzle" id="puzzle565"></span><span class="puzzle" id="puzzle566"></span><span class="puzzle" id="puzzle567"></span><span class="puzzle" id="puzzle568"></span><span class="puzzle" id="puzzle569"></span><span class="puzzle" id="puzzle570"></span><span class="puzzle" id="puzzle571"></span><span class="puzzle" id="puzzle572"></span><span class="puzzle" id="puzzle573"></span><span class="puzzle" id="puzzle574"></span><span class="puzzle" id="puzzle575"></span><span class="puzzle" id="puzzle576"></span><span class="puzzle" id="puzzle577"></span><span class="puzzle" id="puzzle578"></span><span class="puzzle" id="puzzle579"></span><span class="puzzle" id="puzzle580"></span><span class="puzzle" id="puzzle581"></span><span class="puzzle" id="puzzle582"></span><span class="puzzle" id="puzzle583"></span><span class="puzzle" id="puzzle584"></span><span class="puzzle" id="puzzle585"></span><span class="puzzle" id="puzzle586"></span><span class="puzzle" id="puzzle587"></span><span class="puzzle" id="puzzle588"></span><span class="puzzle" id="puzzle589"></span><span class="puzzle" id="puzzle590"></span><span class="puzzle" id="puzzle591"></span><span class="puzzle" id="puzzle592"></span><span class="puzzle" id="puzzle593"></span><span class="puzzle" id="puzzle594"></span><span class="puzzle" id="puzzle595"></span><span class="puzzle" id="puzzle596"></span><span class="puzzle" id="puzzle597"></span><span class="puzzle" id="puzzle598"></span><span class="puzzle" id="puzzle599"></span><span class="puzzle" id="puzzle600"></span><span class="puzzle" id="puzzle601"></span><span class="puzzle" id="puzzle602"></span><span class="puzzle" id="puzzle603"></span><span class="puzzle" id="puzzle604"></span><span class="puzzle" id="puzzle605"></span><span class="puzzle" id="puzzle606"></span><span class="puzzle" id="puzzle607"></span><span class="puzzle" id="puzzle608"></span><span class="puzzle" id="puzzle609"></span><span class="puzzle" id="puzzle610"></span><span class="puzzle" id="puzzle611"></span><span class="puzzle" id="puzzle612"></span><span class="puzzle" id="puzzle613"></span><span class="puzzle" id="puzzle614"></span><span class="puzzle" id="puzzle615"></span><span class="puzzle" id="puzzle616"></span><span class="puzzle" id="puzzle617"></span><span class="puzzle" id="puzzle618"></span><span class="puzzle" id="puzzle619"></span><span class="puzzle" id="puzzle620"></span><span class="puzzle" id="puzzle621"></span><span class="puzzle" id="puzzle622"></span><span class="puzzle" id="puzzle623"></span><span class="puzzle" id="puzzle624"></span><span class="puzzle" id="puzzle625"></span><span class="puzzle" id="puzzle626"></span><span class="puzzle" id="puzzle627"></span><span class="puzzle" id="puzzle628"></span><span class="puzzle" id="puzzle629"></span><span class="puzzle" id="puzzle630"></span><span class="puzzle" id="puzzle631"></span><span class="puzzle" id="puzzle632"></span><span class="puzzle" id="puzzle633"></span><span class="puzzle" id="puzzle634"></span><span class="puzzle" id="puzzle635"></span><span class="puzzle" id="puzzle636"></span><span class="puzzle" id="puzzle637"></span><span class="puzzle" id="puzzle638"></span><span class="puzzle" id="puzzle639"></span><span class="puzzle" id="puzzle640"></span><span class="puzzle" id="puzzle641"></span><span class="puzzle" id="puzzle642"></span><span class="puzzle" id="puzzle643"></span><span class="puzzle" id="puzzle644"></span><span class="puzzle" id="puzzle645"></span><span class="puzzle" id="puzzle646"></span><span class="puzzle" id="puzzle647"></span><span class="puzzle" id="puzzle648"></span><span class="puzzle" id="puzzle649"></span><span class="puzzle" id="puzzle650"></span><span class="puzzle" id="puzzle651"></span><span class="puzzle" id="puzzle652"></span><span class="puzzle" id="puzzle653"></span><span class="puzzle" id="puzzle654"></span><span class="puzzle" id="puzzle655"></span><span class="puzzle" id="puzzle656"></span><span class="puzzle" id="puzzle657"></span><span class="puzzle" id="puzzle658"></span><span class="puzzle" id="puzzle659"></span><span class="puzzle" id="puzzle660"></span><span class="puzzle" id="puzzle661"></span><span class="puzzle" id="puzzle662"></span><span class="puzzle" id="puzzle663"></span><span class="puzzle" id="puzzle664"></span><span class="puzzle" id="puzzle665"></span><span class="puzzle" id="puzzle666"></span><span class="puzzle" id="puzzle667"></span><span class="puzzle" id="puzzle668"></span><span class="puzzle" id="puzzle669"></span><span class="puzzle" id="puzzle670"></span><span class="puzzle" id="puzzle671"></span><span class="puzzle" id="puzzle672"></span><span class="puzzle" id="puzzle673"></span><span class="puzzle" id="puzzle674"></span><span class="puzzle" id="puzzle675"></span><span class="puzzle" id="puzzle676"></span><span class="puzzle" id="puzzle677"></span><span class="puzzle" id="puzzle678"></span><span class="puzzle" id="puzzle679"></span><span class="puzzle" id="puzzle680"></span><span class="puzzle" id="puzzle681"></span><span class="puzzle" id="puzzle682"></span><span class="puzzle" id="puzzle683"></span><span class="puzzle" id="puzzle684"></span><span class="puzzle" id="puzzle685"></span><span class="puzzle" id="puzzle686"></span><span class="puzzle" id="puzzle687"></span><span class="puzzle" id="puzzle688"></span><span class="puzzle" id="puzzle689"></span><span class="puzzle" id="puzzle690"></span><span class="puzzle" id="puzzle691"></span><span class="puzzle" id="puzzle692"></span><span class="puzzle" id="puzzle693"></span><span class="puzzle" id="puzzle694"></span><span class="puzzle" id="puzzle695"></span><span class="puzzle" id="puzzle696"></span><span class="puzzle" id="puzzle697"></span><span class="puzzle" id="puzzle698"></span><span class="puzzle" id="puzzle699"></span><span class="puzzle" id="puzzle700"></span><span class="puzzle" id="puzzle701"></span><span class="puzzle" id="puzzle702"></span><span class="puzzle" id="puzzle703"></span><span class="puzzle" id="puzzle704"></span><span class="puzzle" id="puzzle705"></span><span class="puzzle" id="puzzle706"></span><span class="puzzle" id="puzzle707"></span><span class="puzzle" id="puzzle708"></span><span class="puzzle" id="puzzle709"></span><span class="puzzle" id="puzzle710"></span><span class="puzzle" id="puzzle711"></span><span class="puzzle" id="puzzle712"></span><span class="puzzle" id="puzzle713"></span><span class="puzzle" id="puzzle714"></span><span class="puzzle" id="puzzle715"></span><span class="puzzle" id="puzzle716"></span><span class="puzzle" id="puzzle717"></span><span class="puzzle" id="puzzle718"></span><span class="puzzle" id="puzzle719"></span><span class="puzzle" id="puzzle720"></span><span class="puzzle" id="puzzle721"></span><span class="puzzle" id="puzzle722"></span><span class="puzzle" id="puzzle723"></span><span class="puzzle" id="puzzle724"></span><span class="puzzle" id="puzzle725"></span><span class="puzzle" id="puzzle726"></span><span class="puzzle" id="puzzle727"></span><span class="puzzle" id="puzzle728"></span><span class="puzzle" id="puzzle729"></span><span class="puzzle" id="puzzle730"></span><span class="puzzle" id="puzzle731"></span><span class="puzzle" id="puzzle732"></span><span class="puzzle" id="puzzle733"></span><span class="puzzle" id="puzzle734"></span><span class="puzzle" id="puzzle735"></span><span class="puzzle" id="puzzle736"></span><span class="puzzle" id="puzzle737"></span><span class="puzzle" id="puzzle738"></span><span class="puzzle" id="puzzle739"></span><span class="puzzle" id="puzzle740"></span><span class="puzzle" id="puzzle741"></span><span class="puzzle" id="puzzle742"></span><span class="puzzle" id="puzzle743"></span><span class="puzzle" id="puzzle744"></span><span class="puzzle" id="puzzle745"></span><span class="puzzle" id="puzzle746"></span><span class="puzzle" id="puzzle747"></span><span class="puzzle" id="puzzle748"></span><span class="puzzle" id="puzzle749"></span><span class="puzzle" id="puzzle750"></span><span class="puzzle" id="puzzle751"></span><span class="puzzle" id="puzzle752"></span><span class="puzzle" id="puzzle753"></span><span class="puzzle" id="puzzle754"></span><span class="puzzle" id="puzzle755"></span><span class="puzzle" id="puzzle756"></span><span class="puzzle" id="puzzle757"></span><span class="puzzle" id="puzzle758"></span><span class="puzzle" id="puzzle759"></span><span class="puzzle" id="puzzle760"></span><span class="puzzle" id="puzzle761"></span><span class="puzzle" id="puzzle762"></span><span class="puzzle" id="puzzle763"></span><span class="puzzle" id="puzzle764"></span><span class="puzzle" id="puzzle765"></span><span class="puzzle" id="puzzle766"></span><span class="puzzle" id="puzzle767"></span><span class="puzzle" id="puzzle768"></span><span class="puzzle" id="puzzle769"></span><span class="puzzle" id="puzzle770"></span><span class="puzzle" id="puzzle771"></span><span class="puzzle" id="puzzle772"></span><span class="puzzle" id="puzzle773"></span><span class="puzzle" id="puzzle774"></span><span class="puzzle" id="puzzle775"></span><span class="puzzle" id="puzzle776"></span><span class="puzzle" id="puzzle777"></span><span class="puzzle" id="puzzle778"></span><span class="puzzle" id="puzzle779"></span><span class="puzzle" id="puzzle780"></span><span class="puzzle" id="puzzle781"></span><span class="puzzle" id="puzzle782"></span><span class="puzzle" id="puzzle783"></span><span class="puzzle" id="puzzle784"></span><span class="puzzle" id="puzzle785"></span><span class="puzzle" id="puzzle786"></span><span class="puzzle" id="puzzle787"></span><span class="puzzle" id="puzzle788"></span><span class="puzzle" id="puzzle789"></span><span class="puzzle" id="puzzle790"></span><span class="puzzle" id="puzzle791"></span><span class="puzzle" id="puzzle792"></span><span class="puzzle" id="puzzle793"></span><span class="puzzle" id="puzzle794"></span><span class="puzzle" id="puzzle795"></span><span class="puzzle" id="puzzle796"></span><span class="puzzle" id="puzzle797"></span><span class="puzzle" id="puzzle798"></span><span class="puzzle" id="puzzle799"></span><span class="puzzle" id="puzzle800"></span><span class="puzzle" id="puzzle801"></span><span class="puzzle" id="puzzle802"></span><span class="puzzle" id="puzzle803"></span><span class="puzzle" id="puzzle804"></span><span class="puzzle" id="puzzle805"></span><span class="puzzle" id="puzzle806"></span><span class="puzzle" id="puzzle807"></span><span class="puzzle" id="puzzle808"></span><span class="puzzle" id="puzzle809"></span><span class="puzzle" id="puzzle810"></span><span class="puzzle" id="puzzle811"></span><span class="puzzle" id="puzzle812"></span><span class="puzzle" id="puzzle813"></span><span class="puzzle" id="puzzle814"></span><span class="puzzle" id="puzzle815"></span><span class="puzzle" id="puzzle816"></span><span class="puzzle" id="puzzle817"></span><span class="puzzle" id="puzzle818"></span><span class="puzzle" id="puzzle819"></span><span class="puzzle" id="puzzle820"></span><span class="puzzle" id="puzzle821"></span><span class="puzzle" id="puzzle822"></span><span class="puzzle" id="puzzle823"></span><span class="puzzle" id="puzzle824"></span><span class="puzzle" id="puzzle825"></span><span class="puzzle" id="puzzle826"></span><span class="puzzle" id="puzzle827"></span><span class="puzzle" id="puzzle828"></span><span class="puzzle" id="puzzle829"></span><span class="puzzle" id="puzzle830"></span><span class="puzzle" id="puzzle831"></span><span class="puzzle" id="puzzle832"></span><span class="puzzle" id="puzzle833"></span><span class="puzzle" id="puzzle834"></span><span class="puzzle" id="puzzle835"></span><span class="puzzle" id="puzzle836"></span><span class="puzzle" id="puzzle837"></span><span class="puzzle" id="puzzle838"></span><span class="puzzle" id="puzzle839"></span><span class="puzzle" id="puzzle840"></span><span class="puzzle" id="puzzle841"></span><span class="puzzle" id="puzzle842"></span><span class="puzzle" id="puzzle843"></span><span class="puzzle" id="puzzle844"></span><span class="puzzle" id="puzzle845"></span><span class="puzzle" id="puzzle846"></span><span class="puzzle" id="puzzle847"></span><span class="puzzle" id="puzzle848"></span><span class="puzzle" id="puzzle849"></span><span class="puzzle" id="puzzle850"></span><span class="puzzle" id="puzzle851"></span><span class="puzzle" id="puzzle852"></span><span class="puzzle" id="puzzle853"></span><span class="puzzle" id="puzzle854"></span><span class="puzzle" id="puzzle855"></span><span class="puzzle" id="puzzle856"></span><span class="puzzle" id="puzzle857"></span><span class="puzzle" id="puzzle858"></span><span class="puzzle" id="puzzle859"></span><span class="puzzle" id="puzzle860"></span><span class="puzzle" id="puzzle861"></span><span class="puzzle" id="puzzle862"></span><span class="puzzle" id="puzzle863"></span><span class="puzzle" id="puzzle864"></span><span class="puzzle" id="puzzle865"></span><span class="puzzle" id="puzzle866"></span><span class="puzzle" id="puzzle867"></span><span class="puzzle" id="puzzle868"></span><span class="puzzle" id="puzzle869"></span><span class="puzzle" id="puzzle870"></span><span class="puzzle" id="puzzle871"></span><span class="puzzle" id="puzzle872"></span><span class="puzzle" id="puzzle873"></span><span class="puzzle" id="puzzle874"></span><span class="puzzle" id="puzzle875"></span><span class="puzzle" id="puzzle876"></span><span class="puzzle" id="puzzle877"></span><span class="puzzle" id="puzzle878"></span><span class="puzzle" id="puzzle879"></span><span class="puzzle" id="puzzle880"></span><span class="puzzle" id="puzzle881"></span><span class="puzzle" id="puzzle882"></span><span class="puzzle" id="puzzle883"></span><span class="puzzle" id="puzzle884"></span><span class="puzzle" id="puzzle885"></span><span class="puzzle" id="puzzle886"></span><span class="puzzle" id="puzzle887"></span><span class="puzzle" id="puzzle888"></span><span class="puzzle" id="puzzle889"></span><span class="puzzle" id="puzzle890"></span><span class="puzzle" id="puzzle891"></span><span class="puzzle" id="puzzle892"></span><span class="puzzle" id="puzzle893"></span><span class="puzzle" id="puzzle894"></span><span class="puzzle" id="puzzle895"></span><span class="puzzle" id="puzzle896"></span><span class="puzzle" id="puzzle897"></span><span class="puzzle" id="puzzle898"></span><span class="puzzle" id="puzzle899"></span>
+                <span class="puzzle" id="puzzle900"></span><span class="puzzle" id="puzzle901"></span><span class="puzzle" id="puzzle902"></span><span class="puzzle" id="puzzle903"></span><span class="puzzle" id="puzzle904"></span><span class="puzzle" id="puzzle905"></span><span class="puzzle" id="puzzle906"></span><span class="puzzle" id="puzzle907"></span><span class="puzzle" id="puzzle908"></span><span class="puzzle" id="puzzle909"></span><span class="puzzle" id="puzzle910"></span><span class="puzzle" id="puzzle911"></span><span class="puzzle" id="puzzle912"></span><span class="puzzle" id="puzzle913"></span><span class="puzzle" id="puzzle914"></span><span class="puzzle" id="puzzle915"></span><span class="puzzle" id="puzzle916"></span><span class="puzzle" id="puzzle917"></span><span class="puzzle" id="puzzle918"></span><span class="puzzle" id="puzzle919"></span><span class="puzzle" id="puzzle920"></span><span class="puzzle" id="puzzle921"></span><span class="puzzle" id="puzzle922"></span><span class="puzzle" id="puzzle923"></span><span class="puzzle" id="puzzle924"></span><span class="puzzle" id="puzzle925"></span><span class="puzzle" id="puzzle926"></span><span class="puzzle" id="puzzle927"></span><span class="puzzle" id="puzzle928"></span><span class="puzzle" id="puzzle929"></span><span class="puzzle" id="puzzle930"></span><span class="puzzle" id="puzzle931"></span><span class="puzzle" id="puzzle932"></span><span class="puzzle" id="puzzle933"></span><span class="puzzle" id="puzzle934"></span><span class="puzzle" id="puzzle935"></span><span class="puzzle" id="puzzle936"></span><span class="puzzle" id="puzzle937"></span><span class="puzzle" id="puzzle938"></span><span class="puzzle" id="puzzle939"></span><span class="puzzle" id="puzzle940"></span><span class="puzzle" id="puzzle941"></span><span class="puzzle" id="puzzle942"></span><span class="puzzle" id="puzzle943"></span><span class="puzzle" id="puzzle944"></span><span class="puzzle" id="puzzle945"></span><span class="puzzle" id="puzzle946"></span><span class="puzzle" id="puzzle947"></span><span class="puzzle" id="puzzle948"></span><span class="puzzle" id="puzzle949"></span><span class="puzzle" id="puzzle950"></span><span class="puzzle" id="puzzle951"></span><span class="puzzle" id="puzzle952"></span><span class="puzzle" id="puzzle953"></span><span class="puzzle" id="puzzle954"></span><span class="puzzle" id="puzzle955"></span><span class="puzzle" id="puzzle956"></span><span class="puzzle" id="puzzle957"></span><span class="puzzle" id="puzzle958"></span><span class="puzzle" id="puzzle959"></span><span class="puzzle" id="puzzle960"></span><span class="puzzle" id="puzzle961"></span><span class="puzzle" id="puzzle962"></span><span class="puzzle" id="puzzle963"></span><span class="puzzle" id="puzzle964"></span><span class="puzzle" id="puzzle965"></span><span class="puzzle" id="puzzle966"></span><span class="puzzle" id="puzzle967"></span><span class="puzzle" id="puzzle968"></span><span class="puzzle" id="puzzle969"></span><span class="puzzle" id="puzzle970"></span><span class="puzzle" id="puzzle971"></span><span class="puzzle" id="puzzle972"></span><span class="puzzle" id="puzzle973"></span><span class="puzzle" id="puzzle974"></span><span class="puzzle" id="puzzle975"></span><span class="puzzle" id="puzzle976"></span><span class="puzzle" id="puzzle977"></span><span class="puzzle" id="puzzle978"></span><span class="puzzle" id="puzzle979"></span><span class="puzzle" id="puzzle980"></span><span class="puzzle" id="puzzle981"></span><span class="puzzle" id="puzzle982"></span><span class="puzzle" id="puzzle983"></span><span class="puzzle" id="puzzle984"></span><span class="puzzle" id="puzzle985"></span><span class="puzzle" id="puzzle986"></span><span class="puzzle" id="puzzle987"></span><span class="puzzle" id="puzzle988"></span><span class="puzzle" id="puzzle989"></span><span class="puzzle" id="puzzle990"></span><span class="puzzle" id="puzzle991"></span><span class="puzzle" id="puzzle992"></span><span class="puzzle" id="puzzle993"></span><span class="puzzle" id="puzzle994"></span><span class="puzzle" id="puzzle995"></span><span class="puzzle" id="puzzle996"></span><span class="puzzle" id="puzzle997"></span><span class="puzzle" id="puzzle998"></span><span class="puzzle" id="puzzle999"></span><span class="puzzle" id="puzzle1000"></span><span class="puzzle" id="puzzle1001"></span><span class="puzzle" id="puzzle1002"></span><span class="puzzle" id="puzzle1003"></span><span class="puzzle" id="puzzle1004"></span><span class="puzzle" id="puzzle1005"></span><span class="puzzle" id="puzzle1006"></span><span class="puzzle" id="puzzle1007"></span><span class="puzzle" id="puzzle1008"></span><span class="puzzle" id="puzzle1009"></span><span class="puzzle" id="puzzle1010"></span><span class="puzzle" id="puzzle1011"></span><span class="puzzle" id="puzzle1012"></span><span class="puzzle" id="puzzle1013"></span><span class="puzzle" id="puzzle1014"></span><span class="puzzle" id="puzzle1015"></span><span class="puzzle" id="puzzle1016"></span><span class="puzzle" id="puzzle1017"></span><span class="puzzle" id="puzzle1018"></span><span class="puzzle" id="puzzle1019"></span><span class="puzzle" id="puzzle1020"></span><span class="puzzle" id="puzzle1021"></span><span class="puzzle" id="puzzle1022"></span><span class="puzzle" id="puzzle1023"></span>
+            </div>
+        </div>
+
+        <div id="friendwrap" >
+          <span class="friend" id="friend1"></span>
+          <span class="friend" id="friend2"></span>
+          <span class="friend" id="friend3"></span>
+          <span class="friend" id="friend4"></span>
+        </div>
+
+        <div id="feedback"><span id="result">Fight !</span><span id="sec"></span></div>
+        <h3 class="hidden">測驗<span id="username"></span>的八字</h3>
+        <div id="actionwrap" class="clearfix">
+            <div id="action" class="hidden">
+                <a id="playagain" class="button" href="#">再玩一次</a>
+                <a id="seeresult" class="button" href="">分享結果</a>
+            </div>
+        </div>
+
+  </div>
+
+  <div id="startwrap">
+      <div id="rule">規則：盡快猜出圖片上是那一位朋友！<br/>愈快愈好！</div>
+      <a id="start" class="button" href="#">開始臉書圖像測驗</a>
+  </div>
+</div>
+
+<script>
+var ans, timer;
+var uniqueRandoms = [],
+        numRandoms = 1024,
+        numeach = 32,
+        frequency = 200,
+        remainsec = 32,
+        totalsec = 32,
+        runsec = 0,
+        isAnswer = false;
+
+function fbinit() {
+    if (typeof isrun === "undefined") {
+        FB.init({
+            appId      : '121135108001314',
+            status     : true,
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,
+            version    : 'v1.0'
+        });
+
+        window.isrun = true;
+    }
+
+    FB.Event.subscribe('auth.statusChange', function(response) {
+    });
+
+    FB.Event.subscribe('auth.authResponseChange', function(response) {
+        if (response.status === 'connected') {
+            getPicture();
+        }
+    });
+
+}
+
+function getPicture(){
+    //reset();
+    FB.api(
+        "/me/friends",
+        function (response) {
+            if (response && !response.error) {
+
+                document.getElementById("testwrap").style.display = "block";
+                console.log(response);
+                var data = response.data;
+                if (data.length <= 3) {
+                    document.getElementById("wrap").innerHTML = '<h2>朋友人數過少，無法進行遊戲！</h2>';
+                    alert('請增加facebook朋友人數');
+                    return;
+                }
+
+                var items = shuffle(data);
+
+                //insert random friend
+                document.getElementById("friend1").innerHTML = items[0].name;
+                document.getElementById("friend2").innerHTML = items[1].name;
+                document.getElementById("friend3").innerHTML = items[2].name;
+                document.getElementById("friend4").innerHTML = items[3].name;
+                document.getElementById("friend1").onclick = ansWrong;
+                document.getElementById("friend2").onclick = ansWrong;
+                document.getElementById("friend3").onclick = ansWrong;
+                document.getElementById("friend4").onclick = ansWrong;
+
+                //determine ans
+                ans = Math.floor((Math.random()*4));
+                var item = items[ans];
+                //console.log(item);
+                var id = item.id;
+
+                document.getElementById("friend" + (ans + 1)).onclick = ansRight;
+
+
+                //fetch ans pic
+                FB.api(
+                    "/" + id + "/picture",
+                    {
+                        "redirect": false,
+                        "height": "320",
+                        "width": "320"
+                    },
+                    function (response) {
+                        if (response && !response.error) {
+                            console.log(response);
+                            var img = new Image();
+                            img.src = response.data.url;
+                            img.onload = function(){
+                                startpuzzle();
+                            }
+                            document.getElementById("imgwrap").appendChild(img);
+                            document.getElementById("username").innerHTML = item.name;
+
+                        }
+                    }
+                );
+            }
+        }
+    );
+}
+function reset(){
+    document.getElementById("imgwrap").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+    var puzzle = document.querySelectorAll(".puzzle");
+    //var x = document.getElementsByClassName("puzzle");
+    //console.log(x);
+
+    for (var index = 0; index < puzzle.length; ++index) {
+        //console.log(a[index]);
+        document.getElementById('puzzle' + index).className = 'puzzle';
+        puzzle[index].style.backgroundColor = '';
+    }
+    clearInterval(timer);
+}
+function ansWrong () {
+    clearInterval(timer);
+    if (isAnswer) {
+        return;
+    }
+    document.getElementById("result").innerHTML = "答錯了!";
+    document.getElementById("result").style.color = "red";
+    document.getElementById("friend" + (ans + 1)).style.backgroundColor = "green";
+    this.style.color = "white";
+    this.style.backgroundColor = "red";
+
+    done();
+}
+function ansRight () {
+    clearInterval(timer);
+    if (isAnswer) {
+        return;
+    }
+
+    document.getElementById("result").innerHTML = "答對了!";
+    document.getElementById("result").style.color = "green";
+    this.style.color = "white";
+    this.style.backgroundColor = "green";
+
+    done();
+}
+function done() {
+    document.getElementById("sec").innerHTML = " 耗時" + runsec + "秒";
+    document.getElementById("action").style.display = "block";
+    isAnswer = true;
+
+    setTimeout(function(){
+        //getPicture();
+        //document.location.href = "friend.html";
+    }, 2000);
+}
+
+      
+    
+window.fbAsyncInit = function() {
+    if (window.location.search.match(/code=/) !== null) {
+        fbinit();
+        document.getElementById("startwrap").style.display = "none";
+    }
+
+    document.getElementById("seeresult").addEventListener('click', function(e) {
+        e.preventDefault();
+
+        FB.ui(
+            {
+                method: 'feed',
+                name: '[Score]' + runsec + ', 棒棒！',
+                caption: '讚!',
+                description: (
+                        '猜到了:' + document.getElementById("username").innerHTML + '！！' +
+                        '~~~~~~' +
+                        ''
+                        ),
+                link: 'http://evakang.pixnet.net/blog/post/155198765',
+                picture: 'http://cdn-www.dailypuppy.com/media/dogs/anonymous/Teddy_Welsh_Corgi_01.jpg_w450.jpg'
+            },
+            function(response) {
+                if (response && response.post_id) {
+                    alert('Post was published.');
+                } else {
+                    alert('Post was not published.');
+                }
+            }
+        );
+
+    }, false);
+
+}
+function makeUniqueRandom() {
+    // refill the array if needed
+    if (!uniqueRandoms.length) {
+        for (var i = 0; i < numRandoms; i++) {
+            uniqueRandoms.push(i);
+        }
+    }
+    var index = Math.floor(Math.random() * uniqueRandoms.length);
+    var val = uniqueRandoms[index];
+
+    // now remove that value from the array
+    uniqueRandoms.splice(index, 1);
+
+    return val;
+}
+function startpuzzle() {
+    timer = setInterval(function(){
+        for (var i= 0; i< numeach; i++) {
+            var rand = makeUniqueRandom();
+            document.getElementById('puzzle' + rand).style.backgroundColor = 'green';
+            document.getElementById('puzzle' + rand).className = document.getElementById('puzzle' + rand).className + " slideRight";
+            if (i%2 == 0) {
+                document.getElementById('puzzle' + rand).className = document.getElementById('puzzle' + rand).className + " slideRightFast";
+            }
+
+            (function(rand) {
+                setTimeout(function(){
+                    document.getElementById('puzzle' + rand).style.backgroundColor = 'transparent';
+                }, frequency - 100);
+            })(rand);
+
+        }
+        runsec++;
+        remainsec--;
+        //console.log(remainsec);
+
+        var ratio = remainsec/totalsec;
+        if (ratio < 0.6) {
+            document.getElementById("progressdata").style.backgroundColor = "yellow";
+        }
+        if (ratio < 0.3) {
+            document.getElementById("progressdata").style.backgroundColor = "red";
+        }
+
+        document.getElementById("progressdata").style.width = (remainsec * 3) + "%";
+
+        //console.log(uniqueRandoms.length)
+        if(uniqueRandoms.length == 0) {
+            clearInterval(timer);
+        }
+    }, frequency);
+}
+function shuffle(array) {
+    var currentIndex = array.length
+            , temporaryValue
+            , randomIndex
+            ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+document.getElementById("playagain").onclick = function(e) {
+    //e.preventDefault();
+    document.location.href = "friend.html?code=1";
+}
+document.getElementById("start").addEventListener('click', function(e) {
+    var uri = location.href;//.lastIndexOf("/") + 1);
+    var link = 'https://www.facebook.com/dialog/oauth?client_id=121135108001314&redirect_uri=' + uri  +
+            '&response_type=code&scope=user_likes,user_friends,user_birthday,publish_stream,email';
+
+    location.href = link;
+}, false);
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "//connect.facebook.net/zh_TW/all.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+</html>

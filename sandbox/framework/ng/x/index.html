@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+<div class="well span4" style="margin-top:20px;" ng-controller="Ctrl">
+    <label><input type="checkbox" ng-model="checked" style="margin:0;"> 勾選?</label>
+
+    <div class="alert" ng-show="checked">
+        <strong>使用 ng-show!</strong>
+    </div>
+
+    <div class="alert alert-success" ng-if="checked">
+        <strong>使用 ng-if=checked</strong>
+    </div>
+
+    <div class="alert alert-info" ng-if="show();">
+        <strong>使用 ng-if=show();</strong>
+    </div>
+</div>
+</body>
+</html>

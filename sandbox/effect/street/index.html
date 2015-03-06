@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+        #wrap{
+            margin: 0 auto;
+            width: 320px;
+            background: #000;
+        }
+        #player{
+            width: 50%;
+            margin-top: -80px;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <img id="img" src="http://maps.googleapis.com/maps/api/streetview?size=320x400&sensor=false&location=25.042486,121.507506&heading=53&fov=0&pitch=5"/>
+    <img id="player" src="http://4vector.com/i/free-vector-fabia-car-back-view-clip-art_109506_Fabia_Car_Back_View_clip_art_hight.png">
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+var linkpre = 'http://maps.googleapis.com/maps/api/streetview?size=320x400&sensor=false&';
+
+var pics = [
+    'location=25.042486,121.507506&heading=53&fov=20&pitch=5',
+    'location=25.042486,121.507506&heading=53&fov=40&pitch=5',
+    'location=25.042486,121.507506&heading=33&fov=40&pitch=5',
+    'location=25.042486,121.507506&heading=13&fov=40&pitch=5',
+    'location=25.042601,121.507531&heading=13&fov=40&pitch=5',
+
+    'location=25.042707,121.507555&heading=13&fov=40&pitch=5',
+    'location=25.042813,121.507578&heading=341&fov=40&pitch=0',
+    'location=25.042857,121.507588&heading=339&fov=40&pitch=0',
+    'location=25.04295,121.507541&heading=330&fov=40&pitch=0',
+    'location=25.043038,121.507494&heading=333&fov=40&pitch=0',
+
+    'location=25.043118,121.507449&heading=333&fov=40&pitch=0',
+    'location=25.043221,121.507389&heading=333&fov=40&pitch=0',
+    'location=25.043292,121.507346&heading=341&fov=40&pitch=0',
+    'location=25.043493,121.507223&heading=329&fov=40&pitch=0',
+    'location=25.043493,121.507223&heading=309&fov=40&pitch=0',
+    'location=25.043493,121.507223&heading=299&fov=40&pitch=0',
+    'location=25.04352,121.507067&heading=289&fov=40&pitch=0',
+
+    'location=25.043539,121.50697&heading=289&fov=40&pitch=0',
+    'location=25.043562,121.506855&heading=289&fov=40&pitch=0',
+    'location=25.043614,121.506612&heading=289&fov=40&pitch=0',
+    'location=25.043657,121.506435&heading=289&fov=40&pitch=0',
+    'location=25.0437,121.506255&heading=289&fov=40&pitch=0',
+
+    'location=25.0437,121.506255&heading=269&fov=40&pitch=0',
+    'location=25.0437,121.506255&heading=239&fov=40&pitch=0',
+    'location=25.0437,121.506255&heading=199&fov=40&pitch=0',
+    'location=25.043467,121.506141&heading=199&fov=40&pitch=0',
+    'location=25.043284,121.50609&heading=199&fov=40&pitch=0',
+    'location=25.043197,121.506066&heading=199&fov=40&pitch=0',
+
+    'location=25.043106,121.506041&heading=199&fov=40&pitch=0',
+    'location=25.043014,121.506015&heading=199&fov=40&pitch=0',
+    'location=25.04293,121.505992&heading=199&fov=40&pitch=0',
+    'location=25.042848,121.505969&heading=169&fov=40&pitch=0',
+    'location=25.042848,121.505969&heading=139&fov=40&pitch=0',
+    'location=25.042848,121.505969&heading=109&fov=40&pitch=0',
+
+    'location=25.042738,121.506059&heading=109&fov=40&pitch=0',
+    'location=25.042738,121.506059&heading=109&fov=40&pitch=0',
+    'location=25.042623,121.506476&heading=109&fov=40&pitch=0',
+    'location=25.042559,121.506708&heading=109&fov=40&pitch=0',
+    'location=25.042513,121.506875&heading=109&fov=40&pitch=0',
+    'location=25.042486,121.50699&heading=109&fov=40&pitch=0',
+    'location=25.042461,121.507096&heading=109&fov=40&pitch=0',
+
+
+    'location=25.042404,121.507336&heading=109&fov=40&pitch=0',
+    'location=25.042389,121.5074&heading=89&fov=40&pitch=0',
+    'location=25.042389,121.5074&heading=69&fov=40&pitch=0',
+    'location=25.042389,121.5074&heading=59&fov=40&pitch=0',
+    'location=25.042486,121.507506&heading=53&fov=20&pitch=5',
+    ];
+
+for(var i= 0; i<35; i++){
+    //pics.shift();
+}
+
+for(var i= 0, len=pics.length; i<len; i++){
+    (function(i){
+        var src = linkpre + pics[i];
+        setTimeout(function(){
+            $('#img').prop('src', src);
+            //console.log(src);
+        }, (i+1) * 200);
+    })(i);
+
+}
+</script>
+
+</body>
+</html>

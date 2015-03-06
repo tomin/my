@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+<div class="span6" ng-controller="FilterCtrl">
+    <h4>number</h4>
+    <div class="alert alert-info">
+        <input type="number" ng-model="num">
+        <pre >{{ num | number:5 }}</pre >
+    </div>
+
+    <h4>currency</h4>
+    <div class="alert alert-info">
+        <input type="number" ng-model="money">
+        <pre>{{ money | currency:'NTD ' }}</pre>
+    </div>
+
+    <h4>date</h4>
+    <div class="alert alert-info">
+        <input type="date" ng-model="birth">
+        <pre>{{ birth | date:'yyyy 年 MM 月 dd 日' }}</pre>
+    </div>
+
+    <h4>json</h4>
+    <div class="alert alert-info">
+        <pre>{{ obj | json }}</pre>
+    </div>
+
+    <h4>lowercase</h4>
+    <div class="alert alert-info">
+        <input type="text" ng-model="lower">
+        <pre>{{ lower | lowercase }}</pre>
+    </div>
+
+    <h4>uppercase</h4>
+    <div class="alert alert-info">
+        <input type="text" ng-model="upper">
+        <pre>{{ upper | uppercase }}</pre>
+    </div>
+</div>
+</body>
+</html>

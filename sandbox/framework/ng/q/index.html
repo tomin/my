@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+<div class="span5" style="margin-top:20px;" ng-controller="SelectCtrl">
+    <div class="alert alert-info">
+        <select ng-model="role" ng-options="member.name as member.name for (title, member) in onepiece" ng-change="change();">
+            <option value="">--請選擇角色--</option>
+        </select>
+
+        <div ng-show="result!=''">選擇的是:{{ result }}</div>
+    </div>
+</div>
+</body>
+</html>

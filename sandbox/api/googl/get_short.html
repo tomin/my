@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script>
+        function appendResults(text) {
+            var results = document.getElementById('results');
+            results.appendChild(document.createElement('P'));
+            results.appendChild(document.createTextNode(text));
+        }
+
+        function makeRequest() {
+            var request = gapi.client.urlshortener.url.insert({
+                'resource': {'longUrl': 'https://codepen.io/'}
+            });
+            request.then(function(response) {
+                appendResults(response.result.id);
+                document.getElementById('qr').src = response.result.id + '.qr';
+            }, function(reason) {
+                console.log('Error: ' + reason.result.error.message);
+            });
+        }
+
+        function init() {
+            gapi.client.setApiKey('AIzaSyCvJ8kSN16cUoz_5wMLxDwPZ3XTeBc8a88');
+            gapi.client.load('urlshortener', 'v1').then(makeRequest);
+        }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</head>
+<body>
+<div id="results"></div>
+<img id="qr">
+</body>
+</html>

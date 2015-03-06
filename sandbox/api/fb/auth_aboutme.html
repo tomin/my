@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title></title>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="fb_login" style="font-size:5em">login</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://connect.facebook.net/zh_TW/sdk.js"></script>
+<script>
+    $('#fb_login').click(function(){
+        var uri = location.href;
+        var link = 'https://www.facebook.com/dialog/oauth?client_id=1527433200867928&redirect_uri=' + uri  +
+                '&response_type=code&scope=user_likes,user_birthday,email';
+
+        location.href = link;
+    });
+    window.fbAsyncInit = function() {
+        if (window.location.search.match(/code=/) !== null) {
+            fbinit();
+        }
+    }
+
+    function fbinit() {
+        if (typeof isrun === "undefined") {
+            FB.init({
+                appId      : '1527433200867928',
+                status     : true,
+                cookie     : true,
+                xfbml      : true,
+                oauth      : true,
+                version    : "v2.2"
+            });
+            window.isrun = true;
+        }
+
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if (response.status === 'connected') {
+                play(response);
+            }
+        });
+    }
+    function play(response){
+        $.ajax({
+            url: "http://event.adidas-women.com.tw:8080/about_me",
+            data: {
+                fb_id: response.authResponse.userID,
+                access_token: response.authResponse.accessToken,
+                source: 'tstar'
+            },
+            dataType: "jsonp",
+            success: function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

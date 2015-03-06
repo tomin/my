@@ -1,0 +1,16 @@
+<!DOCTYPE html><meta charset="UTF-8"/>
+<style>
+    svg { animation: roll linear 10s infinite; -webkit-animation: roll linear 10s infinite; }
+    @keyframes roll { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
+    @-webkit-keyframes roll { from { -webkit-transform:rotate(0deg); } to { -webkit-transform:rotate(360deg); } }
+</style>
+<svg width="300" height="300" viewBox="-10 -10 120 120">
+    <g>
+        <path d="M0,50 A50,50 0 0,1 100,50" fill="yellow" stroke="blue" />
+        <text text-anchor="middle" x="50" y="20" font-size="10" fill="blue">Sheepy</text>
+    </g>
+    <g transform="rotate(180 50 50)">
+        <path d="M0,50 A50,50 0 0,1 100,50" fill="blue" stroke="yellow" />
+        <text text-anchor="middle" x="50" y="20" font-size="10" fill="yellow">Sleepy</text>
+    </g>
+</svg>

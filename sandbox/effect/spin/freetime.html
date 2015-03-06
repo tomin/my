@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .clearfix:before, .clearfix:after {
+            content: "\0020";
+            display: block;
+            height: 0;
+            overflow: hidden;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        #wrap{
+            margin: 0 auto;
+            width: 320px;
+        }
+        #map{
+            border:1px solid green;
+            padding:2px;
+        }
+        .block{
+            width: 32%;
+            border:1px solid red;
+            height: 50px;
+            float:left;
+            position: relative;
+        }
+        .step{
+        }
+        .step.active{
+        }
+        .steptext{
+            position: absolute;
+            display: block;
+            top: 2px;
+            color: #fff;
+        }
+        .img{
+            width: 100px;
+            height: 50px;
+        }
+        .mask{
+            position: absolute;
+            background: #000;
+            width: 100px;
+            height: 50px;
+            opacity: .6;
+            top:0;
+            left:0;
+        }
+        .mask.active{
+            opacity: 0;
+        }
+        .item{
+            width: 32%;
+            border:1px solid red;
+            float:left;
+            text-align: center;
+            position: relative;
+        }
+        #playwrap{
+            text-align: center;
+        }
+        .play {
+            -moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+            -webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+            box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
+            background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+            background-color:#9dce2c;
+            -webkit-border-top-left-radius:20px;
+            -moz-border-radius-topleft:20px;
+            border-top-left-radius:20px;
+            -webkit-border-top-right-radius:20px;
+            -moz-border-radius-topright:20px;
+            border-top-right-radius:20px;
+            -webkit-border-bottom-right-radius:20px;
+            -moz-border-radius-bottomright:20px;
+            border-bottom-right-radius:20px;
+            -webkit-border-bottom-left-radius:20px;
+            -moz-border-radius-bottomleft:20px;
+            border-bottom-left-radius:20px;
+            text-indent:0;
+            border:1px solid #83c41a;
+            display:inline-block;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            font-style:normal;
+            height:40px;
+            line-height:40px;
+            width:100px;
+            text-decoration:none;
+            text-align:center;
+            text-shadow:1px 1px 0px #689324;
+        }
+        .play:hover {
+            background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
+            background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
+            background-color:#8cb82b;
+        }.play:active {
+             position:relative;
+             top:1px;
+        }
+        .highlight{
+            color: yellow;
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="map" class="clearfix">
+        <div class="maptext">剩餘秒數: <span id="countdown">60</span></div>
+        <div class="amounttext">身上籌碼: <span id="amount">100</span> (每注籌碼: 5)</div>
+        <div class="block step step0 active"><div class="steptext highlight">馬爾地夫</div><img class="img" src="http://www.yoyoandmaldives.com/img/hotel/Olhuveli01.jpg"><div class="mask active"></div></div>
+        <div class="block step step1"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block step step2"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block step step7"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block center"><img class="img" src="http://storage.googleapis.com/rm-cert/company/AD2_Banner_130x50.jpg"></div>
+        <div class="block step step3"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block step step6"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block step step5"><div class="steptext">帛琉</div><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"><div class="mask"></div></div>
+        <div class="block step step4"><div class="steptext highlight">未知地點</div><img class="img" src="http://th08.deviantart.net/fs70/PRE/f/2013/200/f/5/unknown_place_by_presidentindia-d6e6xk4.jpg"><div class="mask"></div></div>
+    </div>
+
+    <div id="bid" class="clearfix">
+        <div class="bidtext">猜員工旅遊地點:</div>
+        <div class="item" id="item1"><div class="steptext highlight">馬爾地夫(50)</div><span class="itemimg"><img class="img" src="http://www.yoyoandmaldives.com/img/hotel/Olhuveli01.jpg"></span><span class="itembid" id="itembid1">0</span></div>
+        <div class="item" id="item2"><div class="steptext highlight">未知地點(50)</div><span class="itemimg"><img class="img" src="http://th08.deviantart.net/fs70/PRE/f/2013/200/f/5/unknown_place_by_presidentindia-d6e6xk4.jpg"></span><span class="itembid" id="itembid2">0</span></div>
+        <div class="item" id="item3"><div class="steptext">帛琉(5)</div><span class="itemimg"><img class="img" src="http://www.islandworld.com.tw/img/tour/003.jpg"></span><span class="itembid" id="itembid3">0</span></div>
+    </div>
+
+    <div id="playwrap"><span id="play" class="play">Play</span></div>
+    <div id="result" class="hide">0</div>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+    var stepsize = $('.step').size(),
+        speed = 200,
+        lock = false,
+        amount = 100;
+
+
+    //console.log(stepsize)
+    function play(){
+        var period = usefloor(20,27),
+                start = ~~$('.step.active').prop('class').match(/step([0-9])/)[1],
+                dece = period - 8,
+                decesize = 1;
+
+        if (lock) {
+            return;
+        } else {
+            lock = true;
+        }
+
+        //console.log(start)
+        //console.log(period)
+        for (var i=0; i<period; i++){
+            (function(i) {
+                //console.log(i);
+                var time = speed * i;
+
+                // speed up
+                if (i > dece) {
+                    time = time + 200 * decesize;
+                    decesize++;
+                }
+
+                setTimeout(function(){
+                    var index =  (i + start) % stepsize;
+                    //console.log(index);
+                    $('.step').removeClass('active');
+                    $('.step' + index).addClass('active');
+                    $('.mask').removeClass('active');
+                    $('.step' + index + " .mask").addClass('active');
+                    //console.log(i);
+                    if (i == period - 1) {
+                        $('#result').html(index);
+                        lock = false;
+                        updateMoney(index);
+                    }
+                }, time);
+            })(i);
+        }
+    }
+    function usefloor(min,max) {
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+    function updateMoney(index){
+        var itembid1 = $('#itembid1').html(),
+            itembid2 = $('#itembid2').html(),
+            itembid3 = $('#itembid3').html();
+
+        if (index === 0 && itembid1 !== 0) {
+            amount = amount + itembid1 * 50;
+        } else if (index === 4 && itembid2 !== 0) {
+            amount = amount + itembid2 * 50;
+        } else if (itembid3 !== 0) {
+            amount = amount + itembid3 * 5;
+        }
+        $('#amount').html(amount);
+        $('.itembid').html("0");
+
+    }
+    $('#play').click(play);
+    $('.item').click(function(){
+        var bid = $(this).find('.itembid');
+            bidnum = ~~bid.text();
+
+        if (lock || amount == 0) {
+            return;
+        }
+
+        bidnum++;
+        bid.html(bidnum);
+
+        amount-=5;
+        $('#amount').html(amount);
+    });
+    //play();
+
+</script>
+
+</body>
+</html>

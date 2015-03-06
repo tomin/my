@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Document</title>
+    <style>
+        html, body{
+            margin:0;
+            font-family: 'Courier', serif;
+        }
+        #results, #mani{
+            width: 320px;
+            margin: 0 auto;
+        }
+        #go{
+            margin: 1em 0;
+            width: 16em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mani">
+    <div id="latwrap">Lat: <input id="lat" value="25.055405"></div>
+    <div id="lonwrap"> Lon: <input id="lon" value="121.5555687"></div>
+    <button id="go">Search</button>
+</div>
+
+<div id="results"></div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $('#go').on('click', go);
+
+    function go(){
+        console.log('1');
+        
+        var lat = $('#lat').val();
+        var lon = $('#lon').val();
+        var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b1b4e77accf5f293a1c704072176be8a&lat=" + lat + "&lon=" + lon + "&license=5&tags=天空&has_geo=1&format=json&jsoncallback=?";
+        var src, href, title, alt, captions;
+
+        $.getJSON(url,function(data){
+            $('#results').empty();
+            if(typeof data.photos === undefined) {
+                return;
+            }
+            if(data.photos.total == 0){
+                $('#results').html("No results!<br><br> Try searching for something more specific or check for spelling errors.");
+            }
+            else{
+
+                $.each(data.photos.photo, function(i,item){
+                    href = "http://flickr.com/photos/"+item.owner+"/"+item.id;
+                    src = "http://farm"+ item.farm +".static.flickr.com/"+ item.server +"/"+ item.id +"_"+ item.secret +"_m.jpg";
+                    title = item.title;
+                    caption = title;
+
+                    if(caption.length>=25)caption = title.substr(0,25) + " ..";
+                    if(caption.length>0){
+                        captions = "<div class='caption'>"+caption+"</div>";
+                    }else{
+                        captions = "";
+                    }
+
+                    alt = item.title;
+
+                    var html = "<div class=picContainer><a href=\""+href+"\" ><div class=\"img\"><img alt=\""+title+"\" src=\""+src+"\" />" + captions + "</div></a></div>";
+                    $("#results").append(html);
+                });
+            }
+        });
+    }
+    go();
+</script>
+</body>
+</html>

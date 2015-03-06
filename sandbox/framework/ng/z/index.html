@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script src="js/controller.js"></script>
+    <style>
+        .even {
+            color: red;
+        }
+        .odd {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="well span4" style="margin-top:20px;" ng-controller="Ctrl">
+    <h4>ng-class</h4>
+    <ul>
+        <li ng-repeat="person in friends" ng-class="$index % 2 == 0 ? 'even' : 'odd';">{{ person.name }}</li>
+    </ul>
+</div>
+<div class="well span4" style="margin-top:20px;" ng-controller="Ctrl">
+    <h4>ng-class-even & ng-class-odd</h4>
+    <ul>
+        <li ng-repeat="person in friends" ng-class-even="'even'" ng-class-odd="'odd'">{{ person.name }}</li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title></title>
+    <style type="text/css">
+        html, body{
+            margin:0;
+            padding:0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            margin:0 auto;
+        }
+        #wheelwrap{
+            width: 50%;
+            margin:0 auto;
+        }
+        #myobj{
+            width:100%;
+        }
+        .rel{
+            position: relative;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .none{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container rel">
+
+    <div id="wheelwrap" class="rel">
+        <img src="images/wheel.png" id="myobj">
+    </div>
+
+</div>
+
+
+
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script>
+    var myDataRef = new Firebase('https://shining-fire-7511.firebaseio-demo.com/rooms/room1');
+
+    init();
+
+    function init() {
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function(eventData) {
+                var tiltLR = eventData.gamma,
+                    tiltFB = eventData.beta,
+                    dir = eventData.alpha
+
+                deviceOrientationHandler(tiltLR, tiltFB, dir);
+            }, false);
+        }
+    }
+    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+        var myobj = document.getElementById("myobj");
+        var deg = tiltLR;
+
+        if (window.orientation === -90) {
+            deg = -tiltFB;
+        }
+        if (window.orientation === 90) {
+            deg = tiltFB;
+        }
+
+        myobj.style.webkitTransform = "rotate("+ deg +"deg)";
+        myobj.style.transform = "rotate("+ deg +"deg)";
+
+        myDataRef.push({tiltLR: tiltLR, tiltFB: tiltFB, dir: dir, deg: deg});
+    }
+</script>
+
+</body>
+</html>

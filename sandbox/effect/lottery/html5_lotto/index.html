@@ -1,0 +1,220 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>轉吧！命運霓虹燈</title>
+<!--[if IE]><script type="text/javascript" src="/sites/default/files/1010/source/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<style type="text/css">
+body{
+  width: 600px;
+  margin: 0 auto;
+}
+canvas{
+    position: relative;
+}
+#wheelcanvas{
+  margin: 0 auto;
+  position: relative;
+}
+.start{
+  width: 400px;
+  margin: 0 0 0 55px;
+  text-align: center;
+}
+.arrow{
+  width: 20%;
+  top: 10px;
+  left: 20px;
+  position: absolute;
+  
+}
+</style>
+</head>
+<body>
+<!-- <input type="button" value="spin" onclick="spin();" style="float: left;" /> -->
+<canvas id="wheelcanvas" width="500" height="500"></canvas>
+<!-- <div class="arrow">
+  <img id="arrow_image"  src="images/arrow.png" alt="" width="30%">
+</div> -->
+<div class="start" id="arrow" onclick="clickRun(event)">
+  <a href="#"><img id="arrow" src="images/btn-start.jpg" alt="" width="100%"></a>
+</div>
+</body>
+
+<script type="application/javascript">
+
+function clickRun(event){
+  var x = event.pageX - $('#arrow').offset().left
+  var y = event.pageY - $('#arrow').offset().top
+  console.log(x);
+  if (x > 300) {
+    spin(true);
+  } else{
+    spin(false);
+  };
+}
+
+  var colors = ["#683091", "#c81688", "#ee2b31", "#ef4c2d",
+               "#f68922", "#ffbd11", "#fcf103", "#67bc45",
+               "#00a652", "#009090", "#1081c5", "#0c4d9f"];
+  var restaraunts = ["下一位", "PASS", "指定他人", "下一位",
+                     "1 杯", "PASS", "2 杯", 
+                     "1 杯", "全公司", "指定他人", "下一位", "3 杯"];
+  
+  var startAngle = 0;
+  var arc = Math.PI / 6;
+  var spinTimeout = null;
+  
+  var spinArcStart = 0;
+  var spinTime = 0;
+  var spinTimeTotal = 0;
+  
+  var ctx;
+  
+  function draw() {
+    drawRouletteWheel();
+  }
+  
+  function drawRouletteWheel() {
+    var canvas = document.getElementById("wheelcanvas");
+    
+    var img = new Image();   // 建立新的 image 物件
+    img.src = "images/arrow.png"; // 設定來源路徑
+
+
+    if (canvas.getContext) {
+
+      var outsideRadius = 200;
+      var textRadius = 150;
+      var insideRadius = 100;
+      
+      ctx = canvas.getContext("2d");
+
+      ctx.clearRect(0,0,500,500);
+      
+      
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = 0;
+      
+      ctx.font = 'bold 16px sans-serif';
+    
+      for(var i = 0; i < 12; i++) {
+        var angle = startAngle + i * arc;
+        ctx.fillStyle = colors[i];
+        
+        ctx.beginPath();
+        ctx.arc(250, 250, outsideRadius, angle, angle + arc, false);
+        ctx.arc(250, 250, insideRadius, angle + arc, angle, true);
+        ctx.stroke();
+        ctx.fill();
+        
+        ctx.save();
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur    = 0;
+        ctx.shadowColor   = "rgb(220,220,220)";
+        ctx.fillStyle = "white";
+        ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius, 250 + Math.sin(angle + arc / 2) * textRadius);
+        ctx.rotate(angle + arc / 2 + Math.PI / 2);
+        var text = restaraunts[i];
+        ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+        ctx.restore();
+      } 
+      
+      //Arrow
+      img.onload = function(){
+        ctx.drawImage(img,210,20,80, 80);
+      };
+
+      // ctx.fillStyle = "#000000";
+      // ctx.beginPath();
+
+      // ctx.moveTo(250 - 4, 250 - (outsideRadius + 5));
+      // ctx.lineTo(250 + 4, 250 - (outsideRadius + 5));
+      // ctx.lineTo(250 + 4, 250 - (outsideRadius - 5));
+      // ctx.lineTo(250 + 9, 250 - (outsideRadius - 5));
+      // ctx.lineTo(250 + 0, 250 - (outsideRadius - 13));
+      // ctx.lineTo(250 - 9, 250 - (outsideRadius - 5));
+      // ctx.lineTo(250 - 4, 250 - (outsideRadius - 5));
+      // ctx.lineTo(250 - 4, 250 - (outsideRadius + 5));
+      // ctx.fill();
+    }
+  }
+  
+  function spin(isAd2) {
+    startAngle = 0;
+    // var isAd2 = true;
+    var p = []
+    var result;
+    if (isAd2) {
+      _.forEach(_.range(1,7), function(i){
+        p.push(true)
+      });
+
+      _.forEach(_.range(1,5), function(i){
+        p.push(false)
+      });
+
+    } else{
+      _.forEach(_.range(1,5), function(i){
+        p.push(true)
+      });
+
+      _.forEach(_.range(1,7), function(i){
+        p.push(false)
+      });
+    };
+
+    if (_.sample(p)) {
+      result = _.sample(_.range(2,6), 1);
+    } else{
+      result = _.sample(_.range(6,11), 1);
+    };
+
+
+    // console.log('result ' + result);
+    spinAngleStart = result + 10;
+    // spinAngleStart = 1 + 10;
+    spinTime = 0;
+    spinTimeTotal = Math.random() * 3 + 4 * 1000;
+    rotateWheel();
+  }
+  
+  function rotateWheel() {
+
+    spinTime += 30;
+    
+    if(spinTime >= spinTimeTotal) {
+      stopRotateWheel();
+      return;
+    }
+    var spinAngle = spinAngleStart - easeOut(spinTime, 0, spinAngleStart, spinTimeTotal);
+    startAngle += (spinAngle * Math.PI / 180);
+    drawRouletteWheel();
+    spinTimeout = setTimeout('rotateWheel()', 30);
+  }
+  
+  function stopRotateWheel() {
+    clearTimeout(spinTimeout);
+    
+    var degrees = startAngle * 180 / Math.PI + 90;
+    var arcd = arc * 180 / Math.PI;
+    var index = Math.floor((360 - degrees % 360) / arcd);
+    ctx.save();
+    ctx.font = 'bold 40px sans-serif';
+    var text = restaraunts[index]
+    ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
+    ctx.restore();
+  }
+  
+  function easeOut(t, b, c, d) {
+    var ts = (t/=d)*t;
+    var tc = ts*t;
+    return b+c*(tc + -3*ts + 3*t);
+  }
+  
+  draw();
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>FB Template</title>
+<style type="text/css">
+body{
+  margin:0;
+}
+#wrap{
+  width: 320px;
+  margin: 0 auto;
+}
+img{
+  width: 320px;  
+}
+</style>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="wrap">
+  <img src="https://tw-a.pairs.lv/pairs-exam-tw/assets/img/taiwanese/items/if_dog/start/start_01.png">
+
+  <div id="likewrap" class="">
+    請按"讚"來開始測驗！
+    <div class="fb-like" data-href="https://www.facebook.com/MiluKeJi" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>    
+  </div>
+</div>
+
+<script src="http://connect.facebook.net/zh_TW/all.js"></script>
+<script>
+function fbinit() {
+    if (typeof isrun === "undefined") {
+        FB.init({
+          status     : true,
+          cookie     : true,
+          xfbml      : true,
+          oauth      : true
+        });
+
+        window.isrun = true;
+    }
+
+}
+
+window.fbAsyncInit = function() {
+    fbinit();
+    var page_like_callback = function(url, html_element) {
+        alert('add');
+    }
+
+    FB.Event.subscribe('edge.create', page_like_callback);
+
+    FB.Event.subscribe('edge.remove', function(response){
+        alert('remove');
+    });
+}
+</script>
+</body>
+</html>

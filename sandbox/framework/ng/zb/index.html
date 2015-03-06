@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>男丁格爾's 脫殼玩 - AngularJS</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+</head>
+<body>
+<div class="well span4" style="margin-top:20px;">
+    <h3>分隔符號:,</h3>
+    <input type="text" ng-model="tags" ng-list>
+    <div>tags = {{ tags }}</div>
+</div>
+
+<div class="well span4" style="margin-top:20px;">
+    <h3>分隔符號:|</h3>
+    <input type="text" ng-model="names" ng-list="|">
+    <div>names = {{ names }}</div>
+</div>
+
+<div class="well span4" style="margin-top:20px;">
+    <h3>分隔符號:空格</h3>
+    <input type="text" ng-model="skills" ng-list=/\s/>
+    <div>skills = {{ skills }}</div>
+</div>
+</body>
+</html>

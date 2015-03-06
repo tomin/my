@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>衛生紙</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="well span6" style="margin-top:20px;" ng-controller="FriendsCtrl">
+
+
+    <form ng-submit="add()" style="margin-bottom:20px;">
+        <label class="control-label" for="package">幾串:
+            <input type="number" id="package" value="1" package">
+        </label>
+
+        <label class="control-label" for="paper">幾抽:
+            <input type="number" id="paper" placeholder="100" ng-model="paper">
+        </label>
+
+        <label class="control-label" for="box">幾包:
+            <input type="number" id="box" placeholder="10" ng-model="box">
+        </label>
+
+        <label class="control-label" for="price">價格:
+            <input type="number" id="price" placeholder="100" ng-model="price">
+        </label>
+
+
+        <input type="submit" class="btn btn-primary" id="submit" value="加入" />
+    </form>
+
+
+    <h3>共有 {{ friends.length }} 項衛生紙</h3>
+    <div class="alert alert-info" ng-repeat="friend in friends">
+        <button type="button" class="close" ng-click="remove($index);">&times;</button>
+        <div ng-hide="friend.editing" ng-dblclick="friend.editing=true;">
+            {{ friend.paper }} {{ friend.box }} {{ friend.price }} each: <span class="badge badge-important">{{ friend.total | number:4}}</span>
+        </div>
+        <div ng-show="friend.editing">
+            <input type="text" class="input-small" ng-model="friend.paper">
+            <input type="text" class="input-small" ng-model="friend.box">
+
+            <button class="btn" ng-click="friend.editing=false;">Update</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Document</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+        #wrap{
+            background: url('images/corgi.jpg');
+            background-size: 320px 400px;
+            width: 320px;
+            height: 400px;
+        }
+        #elem{
+            position: absolute;
+            width: 160px;
+            height: 230px;
+            left: 37px;
+            top: 9px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="elem"></div>
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="js/wScratchPad.min.js"></script>
+<script>
+    $('#elem').wScratchPad({
+        size        : 15,          // The size of the brush/scratch.
+        bg          : 'images/corgi_m.jpg',  // Background (image path or hex color).
+        fg          : 'images/corgi_black_m.jpg',  // Foreground (image path or hex color).
+        realtime    : false,       // Calculates percentage in realitime.
+        scratchDown : null,       // Set scratchDown callback.
+        scratchUp   : null,       // Set scratchUp callback.
+        scratchMove : null,       // Set scratcMove callback.
+        cursor      : 'crosshair' // Set cursor.
+    });
+</script>
+</body>
+</html>

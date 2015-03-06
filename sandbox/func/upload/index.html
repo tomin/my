@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>Upload</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<div id="imgwrap">截圖：
+  <input type="file" name="img" value="" id="img" required />
+</div>
+
+<div id="console"></div>
+<img src="" id="target"/>
+ 
+<script src="js/plupload.full.min.js"></script>
+<script>
+    var uploader = new plupload.Uploader({
+        runtimes : 'html5,flash,html4',
+        browse_button : 'img',
+        container: document.getElementById('imgwrap'),
+        url : 'upload.php',
+        flash_swf_url : 'js/Moxie.swf',
+
+        filters : {
+            max_file_size : '10mb',
+            mime_types: [
+                {title : "Image files", extensions : "jpg,gif,png"}
+            ]
+        },
+
+        init: {
+            PostInit: function() {
+            },
+
+            FilesAdded: function(up, files) {
+                uploader.start();
+            },
+
+            UploadProgress: function(up, file) {
+            },
+
+            FileUploaded: function(up, file, response) {
+                var resObj = JSON.parse(response.response),
+                    imgurl = "data:" + file.type + ";base64," + resObj.result.content;
+
+                //console.log(imgurl);
+                $('#target').prop('src', imgurl);
+
+                /*
+                $.ajax({
+                   type: "POST",
+                   url: "save.php",
+                   data: {img: imgurl},
+                   contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                   success: function(data){
+                  }
+                });
+                */                
+            },
+
+            Error: function(up, err) {
+                document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+            }
+        }
+    });
+
+    uploader.init();
+</script>
+</body>
+</html>

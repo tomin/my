@@ -1,0 +1,33 @@
+{
+  "generator-rf": {
+    "appname": "js",
+    "mkTestDirs": true,
+    "description": "A React/Flux app generate by RF, powered with JavaScript",
+    "dialect": "JavaScript",
+    "scriptSuffix": ".js",
+    "testFileExtensions": [
+      "js"
+    ],
+    "dialectModuleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "stylesheet": "SASS",
+    "stylesheetSuffix": ".sass",
+    "devDependencies": {
+      "css-loader": "*",
+      "file-loader": "*",
+      "jest-cli": "*",
+      "react-hot-loader": "^1.1.4",
+      "react-tools": "^0.12.2",
+      "style-loader": "*",
+      "webpack-dev-server": "^1.7.0",
+      "webpack": "^1.4.14",
+      "jsx-loader": "*",
+      "sass-loader": "*"
+    },
+    "dialectTest": ".jsx?",
+    "dialectLoader": "react-hot!jsx",
+    "stylesheetLoader": "style!css!sass?indentedSyntax=true&outputStyle=expanded"
+  }
+}

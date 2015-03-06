@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        body{
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="512" height="512" id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var img1 = loadImage('http://s3-ec.buzzfed.com/static/enhanced/webdr01/2013/8/20/14/anigif_enhanced-buzz-16494-1377022542-23_preview.gif', main);
+        var img2 = loadImage('http://cdn.cutestpaw.com/wp-content/uploads/2013/01/l-i-think-im-going-into-a-cute-corgi-coma.-this-is-just-toooo-cooooot..jpg', main);
+
+        var imagesLoaded = 0;
+        function main() {
+            imagesLoaded += 1;
+
+            if(imagesLoaded == 2) {
+                ctx.drawImage(img1, 0, 0);
+                ctx.drawImage(img2, 200, 0);
+            }
+        }
+
+        function loadImage(src, onload) {
+            var img = new Image();
+
+            img.onload = onload;
+            img.src = src;
+
+            return img;
+        }
+    </script>
+</body>
+</html>

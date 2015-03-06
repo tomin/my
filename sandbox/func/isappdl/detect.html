@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<style>
+    body{
+        margin:0;
+    }
+    #myapp{
+        display:none;
+    }
+</style>
+</head>
+
+<body>
+<div id="myapp">myapp</div>
+<h2>Hi</h2>
+<script>
+    /*
+     * https://gist.github.com/ChaseFlorell/5119047
+     *
+     */
+    // tries to execute the uri:scheme
+    function uriSchemeWithHyperlinkFallback(uri, href) {
+        // set up a timer and start it
+        var clickedAt = +new Date;
+        window.location = uri;
+
+        // During tests on 3g/3gs this timeout fires immediately if less than 500ms.
+        setTimeout(function(){
+            // To avoid failing on return to MobileSafari, ensure freshness!
+            if (+new Date - clickedAt < 2000){
+                window.location = href;
+            }
+        }, 0);
+    }
+
+    uriSchemeWithHyperlinkFallback("googlechrome://", "no.html");
+    //comgooglemaps
+    //fb://profile/122459257783923
+    //googlechrome
+    //youtube
+</script>
+</body>
+</html>

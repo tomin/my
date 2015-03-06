@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+html, body{
+    margin: 0;
+}
+#wrap{
+    margin: 0 auto;
+    width: 320px;
+}
+#tools_sketch{
+    background: url('images/bg_trans.png') no-repeat center center;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div class="tools">
+        <a href="#tools_sketch" data-tool="marker">Marker</a>
+        <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+        <a href="#share" id="share">Share</a>
+    </div>
+    <canvas id="tools_sketch" width="320" height="240"></canvas>
+
+    <div id="output"></div>
+    <img id="img" src=""/>
+</div>
+
+
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/sketch.min.js"></script>
+<script type="text/javascript">
+
+var canvas = document.getElementById("tools_sketch"),
+    ctx = canvas.getContext("2d");
+
+
+$('#tools_sketch').sketch({defaultColor: "#00f"});
+
+$('#share').click(function(e){
+    e.preventDefault();
+
+    var data = canvas.toDataURL("image/jpeg");
+
+    var background = new Image();
+    background.src = "images/bg.jpg";
+
+    background.onload = function(){
+        //ctx.globalAlpha = 0.6;
+        ctx.drawImage(background,0,0);
+        data = canvas.toDataURL();
+        $('#img').prop('src', data);
+        //$('#output').html(data);
+    }
+
+});
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/**
+ * http://stackoverflow.com/questions/14897271/create-an-array-of-random-dates-and-values
+ * http://stackoverflow.com/questions/9035627/elegant-method-to-generate-array-of-random-dates-within-two-dates
+ */
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
+randomDate(new Date(2012, 0, 1), new Date());
+
+
+
+
+var arr = [];
+for(var i = 0; i < 1000; i++) {
+    var date = randomDate(new Date(2004, 0, 9), new Date());
+    var randNum = Math.round(Math.random()*10000);
+    arr.push([date, randNum]);
+}
+</script>
+</body>
+</html>

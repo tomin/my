@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta property="og:title" content="iRent 和運租車">
+    <meta property="og:description" content="iRent 輕鬆揪出遊">
+    <meta property="og:image" content="http://content.ad2iction.com/irent/images/share2.jpg">
+    <meta property="og:url" content="http://content.ad2iction.com/irent/">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>iRent 和運租車</title>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="fb_login">login</div>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://connect.facebook.net/zh_TW/sdk.js"></script>
+<script>
+    $('#fb_login').click(function(){
+        var uri = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+        var link = 'https://www.facebook.com/dialog/oauth?client_id=175671525795440&redirect_uri=' + uri  +
+                '&response_type=code&scope=user_likes,user_birthday,publish_actions,user_photos,email';
+
+        location.href = link;
+    });
+    function fbinit() {
+        if (typeof isrun === "undefined") {
+            FB.init({
+                appId      : '175671525795440',
+                status     : true,
+                cookie     : true,
+                xfbml      : true,
+                oauth      : true,
+                version    : "v2.1"
+            });
+            window.isrun = true;
+        }
+
+        FB.Event.subscribe('auth.statusChange', function(response) {});
+
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if (response.status === 'connected') {
+                play();
+            }
+        });
+    }
+    function play(){
+        FB.api(
+                "/me/invitable_friends",
+                function (response) {
+                    console.log(response);
+                    if (response && !response.error) {
+                        /* handle the result */
+                    }
+                }
+        );
+    }
+
+    window.fbAsyncInit = function() {
+        if (window.location.search.match(/code=/) !== null) {
+            fbinit();
+        }
+    }
+</script>
+</body>
+</html>

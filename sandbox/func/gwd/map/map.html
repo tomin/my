@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  
+  <head data-gwd-animation-mode="quickMode">
+    <link href="gwdmap_style.css" data-version="1" data-exports-type="gwd-map" rel="stylesheet">
+    <link href="gwdtaparea_style.css" data-version="1" data-exports-type="gwd-taparea" rel="stylesheet">
+    <link href="gwdpagedeck_style.css" data-version="1" data-exports-type="gwd-pagedeck" rel="stylesheet">
+    <script data-source="https://s0.2mdn.net/ads/studio/Enabler.js" data-exports-type="gwd-doubleclick" type="text/javascript" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+    <script data-source="custom.elements.min.js" type="text/javascript" src="custom.elements.min.js"></script>
+    <meta name="generator" content="Google Web Designer 1.1.0.0723">
+    <meta name="template" content="Expandable 2.0.15">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css" id="gwd-lightbox-style">
+      .gwd-lightbox {
+        overflow: hidden;
+        border: 1px dashed #a0a0a0;
+      }
+    </style>
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+      }
+      .gwd-page-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .gwd-page-content {
+        background-color: transparent;
+        -webkit-transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+        -webkit-transform-style: preserve-3d;
+        position: absolute;
+      }
+      .gwd-page-wrapper {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        -webkit-transform: translateZ(0px);
+      }
+      .banner {
+        width: 300px;
+        height: 250px;
+      }
+      .expanded {
+        width: 480px;
+        height: 250px;
+      }
+      #expand-button {
+        position: absolute;
+        width: 300px;
+        height: 250px;
+        left: 2px;
+        top: -3px;
+      }
+      #close-button {
+        position: absolute;
+        width: 120px;
+        height: 48px;
+        left: 355px;
+        top: 3px;
+        background-image: none;
+        background-color: rgba(153, 153, 153, 0.2);
+      }
+      .gwd-img-uggo {
+        position: absolute;
+        width: 300px;
+        height: 250px;
+        left: 0px;
+        top: 0px;
+      }
+      .gwd-map-o1sy {
+        display: block;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        height: 250px;
+        width: 480px;
+      }
+      .gwd-img-glkf {
+        position: absolute;
+        width: 3px;
+        height: 1px;
+        left: -112px;
+        top: 139px;
+      }
+    </style>
+    <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
+    <script data-source="gwdpage_min.js" data-version="1" data-exports-type="gwd-page" type="text/javascript" src="gwdpage_min.js"></script>
+    <script data-source="gwdpagedeck_min.js" data-version="1" data-exports-type="gwd-pagedeck" type="text/javascript" src="gwdpagedeck_min.js"></script>
+    <script data-source="gwdtaparea_min.js" data-version="1" data-exports-type="gwd-taparea" type="text/javascript" src="gwdtaparea_min.js"></script>
+    <script data-source="gwddoubleclick_min.js" data-version="1" data-exports-type="gwd-doubleclick" type="text/javascript" src="gwddoubleclick_min.js"></script>
+    <script data-source="gwdimage_min.js" data-version="1" data-exports-type="gwd-image" type="text/javascript" src="gwdimage_min.js"></script>
+    <script data-source="gwdmap_min.js" data-version="1" data-exports-type="gwd-map" type="text/javascript" src="gwdmap_min.js"></script>
+  </head>
+  
+  <body class="document-body">
+    <gwd-doubleclick id="gwd-ad" polite-load="">
+      <gwd-metric-configuration>
+        <gwd-metric-event source="gwd-map_1" event="pinclick" metric="Pin clicked"></gwd-metric-event>
+        <gwd-metric-event source="gwd-map_1" event="mapopen" metric="Map Opened"></gwd-metric-event>
+        <gwd-metric-event source="gwd-map_1" event="resultsfound" metric="Map Results Found"></gwd-metric-event>
+        <gwd-metric-event source="gwd-map_1" event="resultsnotfound" metric="No Results Found"></gwd-metric-event>
+        <gwd-metric-event source="gwd-map_1" event="getdirections" metric="" exit="Get directions button"></gwd-metric-event>
+        <gwd-metric-event source="gwd-map_1" event="calllocation" metric="" exit="Call location button"></gwd-metric-event>
+      </gwd-metric-configuration>
+      <div is="gwd-pagedeck" class="gwd-page-container" id="pagedeck" default-page="banner-page">
+        <div is="gwd-page" id="banner-page" data-gwd-name="Banner page" class="gwd-page-wrapper banner gwd-lightbox" data-gwd-width="300px" data-gwd-height="250px" style="display: block;">
+          <div class="gwd-page-content banner">
+            <img class="gwd-img-uggo" is="gwd-image" id="gwd-image_1" source="gallery1.jpg">
+            <gwd-taparea id="expand-button">
+              <img class="gwd-img-glkf" is="gwd-image" id="gwd-image_2">
+            </gwd-taparea>
+          </div>
+        </div>
+        <div is="gwd-page" id="expanded-page" expanded="" data-gwd-name="Expanded page" class="gwd-page-wrapper expanded gwd-lightbox" data-gwd-width="480px" data-gwd-height="250px">
+          <div class="gwd-page-content expanded">
+            <gwd-taparea id="close-button"></gwd-taparea>
+            <gwd-map id="gwd-map_1" query="" start-latitude="" start-longitude="" class="gwd-map-o1sy" request-user-location=""></gwd-map>
+          </div>
+        </div>
+      </div>
+    </gwd-doubleclick>
+    <script type="text/javascript" gwd-events="registration">
+      // Support code for event handling in Google Web Designer
+      // This script block is auto-generated. Please do not edit!
+      gwd.actions.events.registerEventHandlers = function(event) {
+        gwd.actions.events.addHandler('expand-button', 'action', gwd.handleExpand_buttonAction, false);
+        gwd.actions.events.addHandler('close-button', 'action', gwd.handleClose_buttonAction, false);
+        gwd.actions.events.addHandler('close-button', 'action', gwd.handleClose_reportManualClose, false);
+        gwd.actions.timeline.captureAnimationEnd(document.body);
+      };
+      gwd.actions.events.deregisterEventHandlers = function(event) {
+        gwd.actions.events.removeHandler('expand-button', 'action', gwd.handleExpand_buttonAction, false);
+        gwd.actions.events.removeHandler('close-button', 'action', gwd.handleClose_buttonAction, false);
+        gwd.actions.events.removeHandler('close-button', 'action', gwd.handleClose_reportManualClose, false);
+        gwd.actions.timeline.releaseAnimationEnd(document.body);
+      };
+      document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
+      document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
+    </script>
+    <script type="text/javascript" gwd-events="handlers">
+      gwd.handleExpand_buttonAction = function() {
+        // GWD Predefined Function
+        gwd.actions.gwdDoubleclick.goToPage('gwd-ad', 'expanded-page');
+      };
+      gwd.handleClose_buttonAction = function() {
+        // GWD Predefined Function
+        gwd.actions.gwdDoubleclick.goToPage('gwd-ad', 'banner-page');
+      };
+      gwd.handleClose_reportManualClose = function() {
+        // GWD Predefined Function
+        gwd.actions.gwdDoubleclick.reportManualClose('gwd-ad');
+      };
+    </script>
+    <script type="text/javascript" id="gwd-init-code">
+      (function() {
+document.body.style.opacity = "0";
+var gwdAd = document.getElementById('gwd-ad');
+/**
+ * Handles the DOMContentLoaded event. The DOMContentLoaded event is
+ * fired when the document has been completely loaded and parsed.
+ */
+
+function handleDomContentLoaded(event) {
+  // Here are examples of tasks that can be performed in this method:
+  // * Set dynamic values for element attributes.
+  // * Show a progress image to the user before the Ad is shown.
+}
+
+/**
+ * Handles the WebComponentsReady event. This event is fired when all
+ * custom elements have been registered and upgraded.
+ */
+function handleWebComponentsReady(event) {
+  document.body.style.opacity = "";
+  // Start the Ad lifecycle.
+  setTimeout(function() {
+    gwdAd.initAd();
+  }, 0);
+}
+
+/**
+ * Handles the event that is dispatched after the Ad has been
+ * initialized and before the default page of the Ad is shown.
+ */
+function handleAdInitialized(event) {
+  // This marks the end of the polite load phase of the Ad. If a
+  // loading image was shown to the user, this is a good place to
+  // remove it.
+}
+
+window.addEventListener('DOMContentLoaded',
+    handleDomContentLoaded, false);
+window.addEventListener('WebComponentsReady',
+    handleWebComponentsReady, false);
+window.addEventListener('adinitialized',
+    handleAdInitialized, false);
+})();
+    </script>
+  </body>
+
+</html>

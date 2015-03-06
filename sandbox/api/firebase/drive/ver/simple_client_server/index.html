@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title></title>
+    <style type="text/css">
+        html, body{
+            margin:0;
+            padding:0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            margin:0 auto;
+        }
+        .bgimg{
+            width: 100%;
+            height: 100vh;
+        }
+        .rel{
+            position: relative;
+        }
+        .abs{
+            position: absolute;
+        }
+        #objpos{
+            top: 0;
+            width:100%;
+        }
+        #objwrap{
+            width: 13%;
+            height: 100vh;
+            margin:0 auto;
+        }
+        .obj {
+            width:100%;
+            height: auto;
+            bottom: 5%;
+            display: block;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .none{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container rel">
+    <div id="bgwrap" class="rel">
+        <img src="images/map/sshot-1.jpg" class="bgimg">
+    </div>
+    <div id="objpos" class="abs">
+        <div id="objwrap" class="rel">
+            <img src="images/car.png" id="myobj" class="obj abs">
+        </div>
+    </div>
+
+</div>
+
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script>
+    function deviceOrientationHandler(deg) {
+        var myobj = document.getElementById("myobj");
+
+        myobj.style.webkitTransform = "rotate("+ deg/5 +"deg)";
+        myobj.style.transform = "rotate("+ deg/5 +"deg)";
+        myobj.style.marginLeft = (0 + deg*6) + "px";
+    }
+
+    var count = 2;
+    setInterval(function(){
+        count = count % 76 + 1;
+        $('.bgimg')[0].src = 'images/map/sshot-' + count + '.jpg';
+        count++;
+    }, 200);
+</script>
+
+<script>
+    var myDataRef = new Firebase('https://shining-fire-7511.firebaseio-demo.com/rooms/room1');
+    myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        deviceOrientationHandler(message.deg);
+    });
+</script>
+</body>
+</html>

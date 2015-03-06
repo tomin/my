@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Document</title>
+</head>
+<style>
+html, body{
+    margin: 0;
+}
+#canvas {
+
+}
+#background {
+    display: none;
+}
+#ballon {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    cursor: move;
+}
+#wrapper{
+    display: none;
+}
+#my{
+    background: url('images/sky.jpg');
+}
+</style>
+<body>
+<h1>Drag the ballon.</h1>
+<div id="wrapper">
+    <canvas id="canvas" width="500" height="325"></canvas>
+</div>
+<canvas id="my" width="500" height="325"></canvas>
+
+<img src="images/sky.jpg" id="background" />
+<img src="images/ballon.png" id="ballon" />
+
+<button id="draw">Draw</button>
+
+<img src="" id="output"/>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+<script src="js/sketch.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var d_canvas = document.getElementById('canvas');
+        var context = d_canvas.getContext('2d');
+        var background = document.getElementById('background');
+        var ballon = document.getElementById('ballon')
+        context.drawImage(background, 0, 0);
+
+        $('#ballon').draggable();//see http://stackoverflow.com/questions/9547613/jquery-ui-draggable-not-working-on-ios-devices
+
+        $('#draw').click(function() {
+            var $ballon = $('#ballon'),
+                $canvas = $('#my');
+            var ballon_x = $ballon.offset().left - $canvas.offset().left,
+                ballon_y = $ballon.offset().top - $canvas.offset().top;
+
+
+            context.drawImage($('#my')[0], 0, 0);
+            context.drawImage(ballon, ballon_x, ballon_y);
+
+            //$ballon.hide();
+            //$(this).attr('disabled', 'disabled');
+
+            var data = d_canvas.toDataURL();
+            $('#output').prop('src', data);
+        });
+        $('#my').sketch({defaultColor: "#00f"});
+    });
+</script>
+</body>
+</html>
