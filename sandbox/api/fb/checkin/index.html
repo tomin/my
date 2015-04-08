@@ -1,305 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta property="fb:app_id" content="121135108001314" />
-<meta property="og:type"   content="website" />
-<meta property="og:url"    content="http://megatest.tokyo/danger/" />
-<meta property="og:title"  content="[百萬測驗堂] 危險情人指數測驗" />
-<meta property="og:image"  content="http://megatest.tokyo/danger/img/1.gif" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-<title>[百萬測驗堂] 危險情人指數測驗</title>
-<style type="text/css">
-body{
-  margin:0;
-}
-#wrap{
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-}
-img{
-  width: 100%;
-}
-.hidden{
-    display: none;
-}
-#fbshare{
-    background: #2A49A5;
-    border: 1px solid #082783;
-    box-shadow: 0 1px #4C6BC7 inset;
-    color: white;
-    padding: 10px 0;
-    width: 100%;
-    text-decoration: none;
-    text-shadow: 0 -1px 0 #082783;
-    font: 12px Verdana, sans-serif;
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-}
-#startwrap{
-}
-</style>
-<script src="http://stats.g.doubleclick.net/dc.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta property="og:title" content="iRent 和運租車">
+    <meta property="og:description" content="iRent 輕鬆揪出遊">
+    <meta property="og:image" content="http://content.ad2iction.com/irent/images/share2.jpg">
+    <meta property="og:url" content="http://content.ad2iction.com/irent/">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>iRent 和運租車</title>
 </head>
 <body>
 <div id="fb-root"></div>
-<div id="wrap">
-    <div id="logo" class="img hidden"><a href="../#danger_logo"><img src="../img/logo.png" title="百萬測驗堂"></a></div>
+<div id="fb_login" style="border:1px solid #000">login</div>
 
-    <div id="startwrap" class="">
-        <img src="img/1.gif" id="start" class="icon">
-
-        <label><input type="checkbox" checked id="is_share">分享至Facebook</label>
-    </div>
-
-    <div id="gamewrap" class="hidden">
-        <img src="img/p/1.jpg" id="gameimg">
-    </div>
-
-    <div id="step" class="hidden">
-        <img src="img/p/2.jpg" id="stepimg">
-    </div>
-
-    <div id="step2" class="hidden">
-        <img src="img/p/5.jpg" id="stepimg2">
-    </div>
-
-    <div id="answerwrap" class="hidden">
-        <img id="res" src="img/n/1.jpg">
-        <a id="fbshare" href="#danger_share">分享至Facebook</a>
-    </div>
-
-    <div id="success" class="hidden">
-        <h1>Facebook分享成功</h1>
-    </div>
-
-    <div id="more" class="hidden">
-    </div>
-</div>
-
-<script src="../js/myga.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://connect.facebook.net/zh_TW/sdk.js"></script>
 <script>
-(function(window,document,undefined){var params={url:"",type:"get",data:"",dataType:"text",success:function(data){},error:function(msg){},crossDomain:false,urlAppendCallback:true,jsonCallbackName:"jsoncallback"};var Ajax=function(options){if(options){for(var option in params){if(Object.prototype.hasOwnProperty.call(params,option)&&options[option]!==undefined){params[option]=options[option];}}}if(params.crossDomain||isCrossDomain()){this.loadScript();return;}this.req=this.createRequest();if(params.type==="get"){this.sendAjaxGETRequest();}else{this.sendAjaxPOSTRequest();}};Ajax.prototype.createRequest=function(){var request=null;try{request=new XMLHttpRequest();}catch(trymicrosoft){try{request=new ActiveXObject("Msxml2.XMLHTTP");}catch(othermicrosoft){try{request=new ActiveXObject("Microsoft.XMLHTTP");}catch(failed){request=null;}}}if(request==null){alert("Error creating request object!");}else{return request;}};Ajax.prototype.callback=function(){var req=this;if(req.readyState==4){if(req.status==200||(isLocal()&&req.responseText)){var data=getData(req);params.success(data);return data;}else{var message=req.getResponseHeader("Status");if((message==null)||(message.length<=0)){params.error(req.status);}else{params.error(message);}return null;}}};Ajax.prototype.sendAjaxGETRequest=function(){this.req.onreadystatechange=this.callback;this.req.open("GET",params.url,true);this.req.send(null);};Ajax.prototype.sendAjaxPOSTRequest=function(){this.req.onreadystatechange=this.callback;this.req.open("POST",params.url,true);this.req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");this.req.send(params.data);};Ajax.prototype.loadScript=function(){var script=document.createElement("script");var uniqueCallback=params.jsonCallbackName+new Date().getTime();script.type="text/javascript";if(params.url.indexOf(params.jsonCallbackName)!==-1){var re=new RegExp("("+params.jsonCallbackName+")=[^&#]+");script.src=params.url.replace(re,"$1="+uniqueCallback);}else{var delimeter=(params.url.indexOf("?")!==-1)?"&":"?";script.src=params.url+delimeter+params.jsonCallbackName+"="+uniqueCallback;}if(!params.urlAppendCallback){script.src=params.url;}window[uniqueCallback]=function(json){params.success(json);};window[params.jsonCallbackName]=window[uniqueCallback];script.onload=script.onreadystatechange=function(){if(!this.readyState||this.readyState==="loaded"||this.readyState==="complete"){this.onload=this.onreadystatechange=null;document.getElementsByTagName("head")[0].removeChild(this);}};document.getElementsByTagName("head")[0].appendChild(script);};function getData(req){switch(params.dataType){case"text":return req.responseText;case"xml":return req.responseXML;case"json":if(window.JSON&&window.JSON.parse){return window.JSON.parse(req.responseText);}return req.responseText;case"jsonp":var data=req.responseText.replace(/^.+\((.+)\)/,"$1");if(window.JSON&&window.JSON.parse){return window.JSON.parse(data);}return data;default:return req.responseText;}}function isLocal(){return(document.location.protocol.match(/^https?/)===null);}function isAbsolutePath(url){return/^(?:[a-z]+:)?\/\//i.test(url);}function isCrossDomain(){var href=document.location.href,url=params.url;if(href.indexOf("file:")!==-1){return true;}if(!isAbsolutePath(url)){return false;}var re=/https?\/\//,criteriaLength=6;url=url.replace(re,"");href=href.replace(re,"");if(url.substr(0,criteriaLength)!==href.substr(0,criteriaLength)){return true;}return false;}window.Ajax=Ajax;})(this,this.document);
-var $ = function(id){
-    return document.getElementById(id);
-};
-var rand = 2;
-var pname = 'danger';
-var pnameapi = pname;
+    $('#fb_login').click(function(){
+        var uri = location.href.substring(0, location.href.lastIndexOf("/") + 1);
+        var link = 'https://www.facebook.com/dialog/oauth?client_id=175671525795440&redirect_uri=' + uri  +
+                '&response_type=code&scope=user_likes,user_birthday,publish_actions,user_photos,email';
 
-$('start').onclick = function() {
-    trackLink(pname, '1 game start');
+        location.href = link;
+    });
+    function fbinit() {
+        if (typeof isrun === "undefined") {
+            FB.init({
+                appId      : '175671525795440',
+                status     : true,
+                cookie     : true,
+                xfbml      : true,
+                oauth      : true,
+                version    : "v2.1"
+            });
+            window.isrun = true;
+        }
 
-    var uri = location.href.substring(0, location.href.lastIndexOf("/") + 1);
-    var qs = '&state=' + this.id;
+        FB.Event.subscribe('auth.statusChange', function(response) {});
 
-    if ($('is_share').checked) {
-        qs += ',autoshare';
-    }
-    qs += ",myudid" + getqs('udid');
-
-    uri += qs;
-
-    var link = 'https://www.facebook.com/dialog/oauth?client_id=121135108001314&redirect_uri=' + uri  +
-            '&response_type=code&scope=user_likes,user_birthday,publish_stream,email';
-
-    location.href = link;
-}
-$('gameimg').onclick = function() {
-    var rand = usefloor(2, 4);
-    $('stepimg').src = 'img/p/' + rand + '.jpg';
-    show('step');
-    hide('gamewrap');
-    trackLink(pname, '3.1 step 1');
-}
-$('stepimg').onclick = function() {
-    var rand = usefloor(5, 7);
-    $('stepimg2').src = 'img/p/' + rand + '.jpg';
-    show('step2');
-    hide('step');
-    trackLink(pname, '3.2 step 2');
-}
-$('stepimg2').onclick = function() {
-    hide('step2');
-    show('logo');
-    show('answerwrap');
-    trackLink(pname, '4 result shown');
-
-    if (window.location.href.match(/autoshare/) !== null) {
-        doshare(false);
-        trackLink(pname, '5 fb share auto');
-    }
-}
-
-function fbinit() {
-    if (typeof isrun === "undefined") {
-        FB.init({
-          appId      : '121135108001314',
-          status     : true,
-          cookie     : true,
-          xfbml      : true,
-          oauth      : true
+        FB.Event.subscribe('auth.authResponseChange', function(response) {
+            if (response.status === 'connected') {
+                play();
+            }
         });
-
-        window.isrun = true;
     }
-
-    FB.Event.subscribe('auth.statusChange', function(response) {
-    });
-
-    FB.Event.subscribe('auth.authResponseChange', function(response) {
-        if (response.status === 'connected') {
-            trackLink(pname, '2 fb login success');
-
-            afterlogin(response);
-            trackLink(pname, '3 log');
-
-            play(response);
-        }
-    });
-
-}
-function afterlogin(response){
-    var myudid = '';
-    var match = window.location.href.match(/myudid(.+)#/)
-    if (match != null) {
-        myudid = match[1];
-    }
-    var param = {
-        fb_id: response.authResponse.userID,
-        udid: myudid,
-        access_token: response.authResponse.accessToken,
-        source: 'mind_danger'
-    };
-    var qs = '';
-
-    for(var i in param) {
-        qs += i + '=' + param[i] + '&';
-    }
-    var link = '../log.php?' + qs;
-    loadJS (link);
-}
-function getqs(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-        var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
-            return decodeURIComponent(pair[1]);
-        }
-    }
-    return "";
-}
-function show(id){
-    $(id).style.display = 'block';
-}
-function hide(id){
-    $(id).style.display = 'none';
-}
-function play(response){
-    hide('startwrap');
-    show('gamewrap');
-
-    rand = usefloor(1, 5);
-    var link = 'img/n/' + rand + '.jpg';
-    $('res').src = link;
-}
-
-function usefloor(min,max) {
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
-function loadJS(file) {
-    var jsElm = document.createElement("script");
-    jsElm.type = "application/javascript";
-    jsElm.src = file;
-    document.body.appendChild(jsElm);
-}
-function fb_share_res(obj) {
-}
-function doshare(isnext){
-    var path = location.href.substring(0, location.href.lastIndexOf("/") + 1);
-    var url = path + 'img/n/' + rand + '.jpg';
-    var param = {
-        //message: path,
-        url: url
-    };
-
-    FB.api(
+    function play(){
+        FB.api(
             "/me/feed",
             "POST",
             {
+                "link": 'http://content.ad2iction.com/maga/',
                 "place": "115876435127503"
             },
             function (response) {
+                console.log(response);
                 if (response && !response.error) {
                     /* handle the result */
                 }
             }
-    );
-/*
-    FB.api(
-        "/me/photos",
-        "POST",
-        param,
-        function (response) {
-            if (response && !response.error) {
-                if (isnext) {
-                    hide('answerwrap');
-                    show('success');
-                }
-            }
-        }
-    );
-    */
-    getmore(pnameapi);
-}
-
-function getmore(exclude) {
-    new Ajax({
-        "url": "/list.php",
-        "success": function(data) {
-            var json = JSON.parse(data);
-            var html = '';
-            for(var i= 0, len = json.length; i < len ; i++) {
-
-                if (json[i]['link'] == exclude) {
-                    continue;
-                }
-                html += '<div class="img"><a href="../' + json[i]['link'] + '/"><img src="../img/' + json[i]['img'] + '" title="' + json[i]['title'] + '"></a></div>';
-            }
-            $('more').innerHTML = html;
-            show('more');
-        }
-    });
-}
-
-
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "//connect.facebook.net/zh_TW/all.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
-window.fbAsyncInit = function() {
-    $("fbshare").addEventListener('click', function(e) {
-        e.preventDefault();
-
-        doshare(true);
-        trackLink(pname, '4.1 fb share manual');
-
-    }, false);
-
-    if (window.location.search.match(/code=/) !== null) {
-        fbinit();
+        );
     }
-}
 
-trackLink(pname, '0 landing');
+    window.fbAsyncInit = function() {
+        if (window.location.search.match(/code=/) !== null) {
+            fbinit();
+        }
+    }
 </script>
 </body>
 </html>
