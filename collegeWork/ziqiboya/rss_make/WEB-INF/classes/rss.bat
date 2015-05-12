@@ -1,2 +1,0 @@
-javac rss.java
-pause

@@ -1,6 +1,7 @@
 # My work collections #
 
-*   collegeWork - Some of my work done during college
-*   graduateWork -  Some of my work done during graduate
-*   garden - My playground
-*   sandbox - My work recently
+My work recently
+*   _html5gen - template
+*   api -  integrate with web services
+*   compile - something that needs to be compiled
+*   etc
